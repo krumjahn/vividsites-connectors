@@ -1,0 +1,10 @@
+{
+  "name": "vividsites",
+  "version": "1.0.0",
+  "description": "Search cinematic website templates, preview designs, and retrieve free build prompts and UI or 3D component code.",
+  "mcpServers": {
+    "vividsites": {
+      "httpUrl": "https://www.vividsites.app/api/connector"
+    }
+  }
+}

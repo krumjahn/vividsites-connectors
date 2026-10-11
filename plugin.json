@@ -1,0 +1,20 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "vividsites",
+  "version": "1.0.0",
+  "description": "Search cinematic website templates, preview designs, and retrieve free build prompts and UI or 3D component code.",
+  "author": {
+    "name": "VividSites",
+    "url": "https://www.vividsites.app"
+  },
+  "homepage": "https://www.vividsites.app/mcp",
+  "repository": "https://github.com/krumjahn/vividsites-connectors",
+  "license": "MIT",
+  "keywords": [
+    "websites",
+    "templates",
+    "components",
+    "3d",
+    "design"
+  ]
+}

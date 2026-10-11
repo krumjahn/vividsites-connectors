@@ -1,0 +1,7 @@
+{
+  "mcpServers": {
+    "vividsites": {
+      "httpUrl": "https://www.vividsites.app/api/connector"
+    }
+  }
+}

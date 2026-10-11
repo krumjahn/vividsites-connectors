@@ -1,0 +1,33 @@
+{
+  "name": "vividsites",
+  "version": "1.0.0",
+  "description": "Search cinematic website templates, preview designs, and retrieve free build prompts and UI or 3D component code.",
+  "author": {
+    "name": "VividSites",
+    "url": "https://www.vividsites.app"
+  },
+  "homepage": "https://www.vividsites.app/mcp",
+  "license": "MIT",
+  "keywords": [
+    "websites",
+    "templates",
+    "components",
+    "3d",
+    "design"
+  ],
+  "skills": [
+    "./skills/vividsites-library"
+  ],
+  "mcpServers": {
+    "vividsites": {
+      "url": "https://www.vividsites.app/api/connector"
+    }
+  },
+  "interface": {
+    "displayName": "VividSites",
+    "shortDescription": "Cinematic website templates and components",
+    "longDescription": "Search cinematic website templates, preview designs, and retrieve free build prompts and UI or 3D component code.",
+    "developerName": "VividSites",
+    "websiteURL": "https://www.vividsites.app"
+  }
+}

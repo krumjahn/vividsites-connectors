@@ -1,0 +1,36 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "VividSites",
+    "description": "Search cinematic website templates, preview designs, and retrieve free build prompts and UI or 3D component code.",
+    "version": "1.0.0",
+    "contact": {
+      "name": "VividSites",
+      "url": "https://www.vividsites.app/support",
+      "email": "support@vividsites.app"
+    }
+  },
+  "host": "www.vividsites.app",
+  "basePath": "/",
+  "schemes": [
+    "https"
+  ],
+  "paths": {
+    "/api/connector": {
+      "post": {
+        "summary": "Search and retrieve VividSites library assets",
+        "description": "MCP endpoint exposing six library tools. No authentication; premium prompts unavailable.",
+        "x-ms-agentic-protocol": "mcp-streamable-1.0",
+        "operationId": "InvokeMCP",
+        "responses": {
+          "200": {
+            "description": "Successful MCP response"
+          },
+          "202": {
+            "description": "MCP notification accepted"
+          }
+        }
+      }
+    }
+  }
+}

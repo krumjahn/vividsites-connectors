@@ -1,0 +1,17 @@
+{
+  "name": "vividsites",
+  "owner": {
+    "name": "VividSites",
+    "url": "https://www.vividsites.app"
+  },
+  "plugins": [
+    {
+      "name": "vividsites",
+      "source": "./",
+      "description": "Search cinematic website templates, preview designs, and retrieve free build prompts and UI or 3D component code."
+    }
+  ],
+  "metadata": {
+    "description": "VividSites cinematic website template and component library."
+  }
+}
