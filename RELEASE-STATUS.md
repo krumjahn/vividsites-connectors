@@ -4,13 +4,15 @@ Updated October 12, 2026 (Asia/Hong_Kong). A published repository or a working M
 
 Repository: https://github.com/krumjahn/vividsites-connectors
 
+Release ZIP: https://github.com/krumjahn/vividsites-connectors/releases/tag/v1.0.0
+
 ## Verification
 
 - Live MCP: initialization, all six library tools, safety annotations, preview URLs, component source, and unknown-slug error handling passed.
 - Agent Plugins: plugin.json and mcp.json pass their official JSON schemas.
 - Claude Code: plugin and marketplace manifests pass `claude plugin validate`.
 - Shared skill: passes the skill-creator validator.
-- Gemini CLI: installed successfully into an isolated test configuration; MCP server reports Connected and the library skill is discovered.
+- Gemini CLI: both the local package and published GitHub v1.0.0 release installed successfully into separate isolated test configurations; MCP server reports Connected and the library skill is discovered.
 - Microsoft: OpenAPI 2.0 schema validates. Not imported into a tenant or certified.
 - Other host runtimes: not yet tested; configuration follows the linked host documentation.
 
