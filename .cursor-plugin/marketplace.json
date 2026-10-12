@@ -1,0 +1,17 @@
+{
+  "name": "vividsites",
+  "owner": {
+    "name": "VividSites",
+    "email": "support@vividsites.app"
+  },
+  "metadata": {
+    "description": "Paid-account VividSites website template and component connector."
+  },
+  "plugins": [
+    {
+      "name": "vividsites",
+      "source": "./",
+      "description": "Search cinematic website templates, preview designs, and retrieve build prompts and UI or 3D component code. Paid VividSites account required."
+    }
+  ]
+}

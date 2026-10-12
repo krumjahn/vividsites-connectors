@@ -36,9 +36,15 @@ claude plugin install vividsites@vividsites
 
 The `.mcp.json` manifest reads that environment variable in its Authorization header. No key is bundled. Alternatively add the remote endpoint and Bearer header through your client's private MCP configuration.
 
-### Cursor / GitHub Copilot CLI
+### Cursor
 
-Merge [Cursor config](configs/cursor.json) or [Copilot CLI config](configs/copilot-cli.json) into your **personal** MCP configuration. Replace `YOUR_VIVIDSITES_API_KEY` locally using the host's credential/configuration controls. These are literal placeholders, not environment references. Never commit the completed configuration.
+The native Cursor package in `.cursor-plugin/plugin.json` declares a required `VIVIDSITES_API_KEY` setting and uses `configs/cursor-plugin.json` for the authenticated MCP connection. Configure your personal paid-account key through Cursor’s plugin configuration controls. The Cursor marketplace manifest explicitly selects this native package; the portable root manifest remains separate. Marketplace publication is subject to review and is not yet confirmed.
+
+For manual installation, merge [Cursor config](configs/cursor.json) into your **personal** MCP configuration. Replace its key placeholder locally; do not commit a completed config.
+
+### GitHub Copilot CLI
+
+Merge [Copilot CLI config](configs/copilot-cli.json) into your **personal** MCP configuration. Replace `YOUR_VIVIDSITES_API_KEY` locally using the host's credential/configuration controls. These are literal placeholders, not environment references. Never commit the completed configuration.
 
 ### VS Code / GitHub Copilot
 

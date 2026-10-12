@@ -1,0 +1,35 @@
+{
+  "name": "vividsites",
+  "version": "2.0.1",
+  "description": "Search cinematic website templates, preview designs, and retrieve build prompts and UI or 3D component code. Paid VividSites account required.",
+  "author": {
+    "name": "VividSites",
+    "email": "support@vividsites.app"
+  },
+  "homepage": "https://www.vividsites.app/mcp",
+  "repository": "https://github.com/krumjahn/vividsites-connectors",
+  "license": "MIT",
+  "keywords": [
+    "websites",
+    "templates",
+    "components",
+    "3d",
+    "design"
+  ],
+  "logo": "assets/icon.png",
+  "mcpServers": "configs/cursor-plugin.json",
+  "variables": {
+    "type": "object",
+    "properties": {
+      "VIVIDSITES_API_KEY": {
+        "type": "string",
+        "title": "VividSites API key",
+        "description": "Your personal API key from https://www.vividsites.app/mcp. Every tool requires an active paid VividSites library entitlement.",
+        "minLength": 1
+      }
+    },
+    "required": [
+      "VIVIDSITES_API_KEY"
+    ]
+  }
+}

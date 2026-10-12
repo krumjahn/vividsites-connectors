@@ -18,8 +18,9 @@ Repository: https://github.com/krumjahn/vividsites-connectors
 | Platform | Status |
 | --- | --- |
 | Gemini CLI | Repository published with gallery topic; sensitive API-key setting added; gallery listing unconfirmed |
-| Cursor / Grok Bot | Package available; public listing and authenticated host setup unconfirmed |
-| Muse | Submission form filled with hosted MCP, API-key auth and paid-only requirements; awaiting final review/submission |
+| Cursor | Native package prepared and publisher form filled. Not submitted: Publisher Terms section 3.1 needs clarification for paid-only external service access |
+| Grok Bot | Public listing and authenticated host setup unconfirmed |
+| Muse | Submitted, confirmed by the publisher on October 12, 2026; approval not yet confirmed |
 | Claude / Cowork | Claude Code package updated; web clients require API-key header support; OAuth is not implemented |
 | Kimi Work / Code | Manifest updated with bearerTokenEnvVar; paid host runtime test and public review pending |
 | Qwen Work / Code | Code config requires an API key; Work authenticated setup/public listing unverified |
@@ -27,9 +28,9 @@ Repository: https://github.com/krumjahn/vividsites-connectors
 | GitHub Copilot | Personal CLI config and VS Code password-input config available; registry approval not claimed |
 | Gemini consumer | API-key support must be verified in the eligible user's account; no OAuth integration |
 | DeepSeek Cowork | Exact application must be identified before claiming compatibility or distribution |
-| ChatGPT | Separate earlier keyless submission is obsolete after this change; it needs authenticated onboarding and a new review |
+| ChatGPT | Previously submitted as a plugin, reconfirmed by the publisher; approval not confirmed. Earlier keyless configuration needs reconciliation with current paid-only access |
 
-No marketplace submission or approval is claimed without a confirmation record.
+Submission status is based on portal evidence or the publisher’s explicit confirmation; submission does not imply approval.
 
 ## Reproduce checks
 
@@ -44,3 +45,9 @@ For authenticated checks, supply VIVIDSITES_API_KEY and optionally VIVIDSITES_UN
 ## Publisher materials
 
 `review/listing.json` has the paid-only listing copy and policy links. `assets/icon.png` is the logo. The existing demo predates authentication changes and must not be represented as the current onboarding flow. `microsoft/intro.md` explains Microsoft-specific configuration and certification prerequisites.
+
+## Cursor preparation — October 12, 2026
+
+The native `.cursor-plugin/plugin.json` declares a required paid-account API-key variable and selects `configs/cursor-plugin.json`. The Cursor marketplace manifest selects the native package. Cursor’s official template validator and variable/schema checks passed, as did live anonymous/invalid-key denial checks. Native Cursor installation and credential UI have not yet been runtime-tested.
+
+The publisher form is filled but not submitted. [Publisher Terms section 3.1](https://cursor.com/marketplace-publisher-terms) prohibits direct or indirect fees for access/use of a Marketplace plugin. Whether an existing paid VividSites subscription is allowed needs clarification; no terms acceptance or free-access change has been made.
