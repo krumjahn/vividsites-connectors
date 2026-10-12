@@ -2,7 +2,10 @@
   "mcpServers": {
     "vividsites": {
       "type": "http",
-      "url": "https://www.vividsites.app/api/connector"
+      "url": "https://www.vividsites.app/api/connector",
+      "headers": {
+        "Authorization": "Bearer ${VIVIDSITES_API_KEY}"
+      }
     }
   }
 }

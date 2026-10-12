@@ -1,38 +1,34 @@
 # Distribution status
 
-Updated October 12, 2026 (Asia/Hong_Kong). A published repository or a working MCP endpoint does not imply marketplace approval.
+Updated October 12, 2026 (Asia/Hong_Kong). Version 2.0.0 requires a paid account for every connector operation. Version 1.0.0's keyless instructions are obsolete. Published packages are not marketplace approvals.
 
 Repository: https://github.com/krumjahn/vividsites-connectors
 
-Release ZIP: https://github.com/krumjahn/vividsites-connectors/releases/tag/v1.0.0
-
 ## Verification
 
-- Live MCP: initialization, all six library tools, safety annotations, preview URLs, component source, and unknown-slug error handling passed.
-- Agent Plugins: plugin.json and mcp.json pass their official JSON schemas.
-- Claude Code: plugin and marketplace manifests pass `claude plugin validate`.
-- Shared skill: passes the skill-creator validator.
-- Gemini CLI: both the local package and published GitHub v1.0.0 release installed successfully into separate isolated test configurations; MCP server reports Connected and the library skill is discovered.
-- Microsoft: OpenAPI 2.0 schema validates. Not imported into a tenant or certified.
-- Other host runtimes: not yet tested; configuration follows the linked host documentation.
+- Backend paid-access tests: 10 passed, covering anonymous/invalid/unpaid denial, all paid plans, AppSumo revocation, lookup failures, batches, all six tools and the older MCP prompt endpoint.
+- TypeScript and catalog checks passed. Local full build encountered existing Google Fonts network timeouts; deployment build status is tracked in [backend PR #22](https://github.com/micahc123/uiprompts/pull/22).
+- Agent Plugins manifests and Microsoft OpenAPI pass their official schemas. Claude plugin and marketplace manifests pass `claude plugin validate`.
+- Gemini v1.0.0 previously installed and connected in isolated profiles. This does not validate v2 paid authentication; v2 host runtime testing requires a paid account key.
+- Other host authenticated runtimes are not yet verified. Configuration validation does not establish compatibility with every host or account.
 
 ## Marketplace progress
 
-| Platform | Status | Next step |
-| --- | --- | --- |
-| Gemini CLI | Published repository with gemini-cli-extension topic | Gallery crawl and validation are external; listing not yet confirmed |
-| Cursor / Grok Bot | Submission package ready; Cursor portal requires sign-in | Sign in at https://cursor.com/marketplace/publish and submit the repository; verify Grok Bot availability separately |
-| Muse | Listing copy and endpoint ready; portal not yet inspected successfully | Submit at https://muse.ai/platform |
-| Claude / Cowork | Remote endpoint and plugin bundle ready | Submit through Claude developer directory portal on a paid account |
-| Kimi Work | Plugin manifest, skill and ZIP source ready | Install/test personal plugin, then plugin details → envelope → apply to official marketplace |
-| Qwen Work | Organization connector setup documented | Add endpoint with No authorization; public publisher route remains unverified |
-| Microsoft Copilot Studio | Custom connector schema and documentation ready | Tenant test, verified publisher enrollment, and authentication eligibility for public certification remain outstanding |
-| GitHub Copilot | Remote MCP configs ready | Users can install directly; no curated registry approval claimed |
-| Gemini consumer | Custom MCP setup documented | Requires an eligible account; no-auth compatibility not yet tested |
-| DeepSeek Cowork | Generic remote MCP endpoint available | Exact application must be identified before claiming support or marketplace publication |
-| ChatGPT | Existing separate submission previously recorded as in review | No change made to that submission; current portal status not rechecked |
+| Platform | Status |
+| --- | --- |
+| Gemini CLI | Repository published with gallery topic; sensitive API-key setting added; gallery listing unconfirmed |
+| Cursor / Grok Bot | Package available; public listing and authenticated host setup unconfirmed |
+| Muse | Submission form filled with hosted MCP, API-key auth and paid-only requirements; awaiting final review/submission |
+| Claude / Cowork | Claude Code package updated; web clients require API-key header support; OAuth is not implemented |
+| Kimi Work / Code | Manifest updated with bearerTokenEnvVar; paid host runtime test and public review pending |
+| Qwen Work / Code | Code config requires an API key; Work authenticated setup/public listing unverified |
+| Microsoft Copilot Studio | API-key OpenAPI definition ready; tenant test and public certification pending |
+| GitHub Copilot | Personal CLI config and VS Code password-input config available; registry approval not claimed |
+| Gemini consumer | API-key support must be verified in the eligible user's account; no OAuth integration |
+| DeepSeek Cowork | Exact application must be identified before claiming compatibility or distribution |
+| ChatGPT | Separate earlier keyless submission is obsolete after this change; it needs authenticated onboarding and a new review |
 
-Browser submission work was interrupted by Chrome's remote-debugging permission gate. The automatic approval helper reported missing macOS Accessibility permission. No marketplace submission is claimed without a confirmation page or record.
+No marketplace submission or approval is claimed without a confirmation record.
 
 ## Reproduce checks
 
@@ -42,8 +38,8 @@ claude plugin validate .
 claude plugin validate .claude-plugin/plugin.json
 ```
 
-Manual host smoke test: search three free designs; preview `cinematic`; retrieve its full prompt; search and retrieve `magnetic-button`; retrieve video guidance; confirm unknown component is an error and unsupported publishing/purchases are not attempted. Full prompts are in `review/cases.json`.
+For authenticated checks, supply VIVIDSITES_API_KEY and optionally VIVIDSITES_UNPAID_API_KEY through the process environment. The script reports skipped credential-dependent checks. Never publish test keys. Manual host cases are in `review/cases.json`.
 
 ## Publisher materials
 
-`review/listing.json` contains the description, support contact, policy URLs, endpoint and existing demo. `assets/icon.png` is the existing VividSites logo. `microsoft/intro.md` describes Microsoft-specific scope and remaining certification requirements.
+`review/listing.json` has the paid-only listing copy and policy links. `assets/icon.png` is the logo. The existing demo predates authentication changes and must not be represented as the current onboarding flow. `microsoft/intro.md` explains Microsoft-specific configuration and certification prerequisites.

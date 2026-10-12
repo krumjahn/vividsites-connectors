@@ -5,7 +5,10 @@
       "url": "https://www.vividsites.app/api/connector",
       "tools": [
         "*"
-      ]
+      ],
+      "headers": {
+        "Authorization": "Bearer YOUR_VIVIDSITES_API_KEY"
+      }
     }
   }
 }

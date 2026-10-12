@@ -2,8 +2,8 @@
   "swagger": "2.0",
   "info": {
     "title": "VividSites",
-    "description": "Search cinematic website templates, preview designs, and retrieve free build prompts and UI or 3D component code.",
-    "version": "1.0.0",
+    "description": "Search cinematic website templates, preview designs, and retrieve build prompts and UI or 3D component code. Paid VividSites account required.",
+    "version": "2.0.0",
     "contact": {
       "name": "VividSites",
       "url": "https://www.vividsites.app/support",
@@ -19,7 +19,7 @@
     "/api/connector": {
       "post": {
         "summary": "Search and retrieve VividSites library assets",
-        "description": "MCP endpoint exposing six library tools. No authentication; premium prompts unavailable.",
+        "description": "Six MCP library tools, all requiring API-key authentication and a paid VividSites library entitlement.",
         "x-ms-agentic-protocol": "mcp-streamable-1.0",
         "operationId": "InvokeMCP",
         "responses": {
@@ -28,9 +28,31 @@
           },
           "202": {
             "description": "MCP notification accepted"
+          },
+          "401": {
+            "description": "Missing or invalid API key"
+          },
+          "403": {
+            "description": "Paid library account required"
+          },
+          "503": {
+            "description": "Account access could not be verified"
           }
         }
       }
     }
-  }
+  },
+  "securityDefinitions": {
+    "apiKey": {
+      "type": "apiKey",
+      "in": "header",
+      "name": "Authorization",
+      "description": "Enter Bearer followed by your personal VividSites API key. Paid library account required."
+    }
+  },
+  "security": [
+    {
+      "apiKey": []
+    }
+  ]
 }

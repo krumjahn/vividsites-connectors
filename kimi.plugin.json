@@ -1,7 +1,7 @@
 {
   "name": "vividsites",
-  "version": "1.0.0",
-  "description": "Search cinematic website templates, preview designs, and retrieve free build prompts and UI or 3D component code.",
+  "version": "2.0.0",
+  "description": "Search cinematic website templates, preview designs, and retrieve build prompts and UI or 3D component code. Paid VividSites account required.",
   "author": {
     "name": "VividSites",
     "url": "https://www.vividsites.app"
@@ -20,13 +20,14 @@
   ],
   "mcpServers": {
     "vividsites": {
-      "url": "https://www.vividsites.app/api/connector"
+      "url": "https://www.vividsites.app/api/connector",
+      "bearerTokenEnvVar": "VIVIDSITES_API_KEY"
     }
   },
   "interface": {
     "displayName": "VividSites",
     "shortDescription": "Cinematic website templates and components",
-    "longDescription": "Search cinematic website templates, preview designs, and retrieve free build prompts and UI or 3D component code.",
+    "longDescription": "Search cinematic website templates, preview designs, and retrieve build prompts and UI or 3D component code. Paid VividSites account required.",
     "developerName": "VividSites",
     "websiteURL": "https://www.vividsites.app"
   }

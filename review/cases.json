@@ -50,5 +50,28 @@
       "tools_triggered": "None",
       "expected_behavior": "Explain that the library plugin cannot purchase credits or charge a payment method. Do not start a checkout or request payment details."
     }
+  ],
+  "prerequisites": "Positive cases require a valid API key belonging to a paid library account. Never paste keys into model chat.",
+  "accessChecks": [
+    {
+      "account": "Missing or invalid key",
+      "expectedHttpStatus": 401,
+      "coverage": "initialize, tools/list, all six tools, batches, legacy prompt route"
+    },
+    {
+      "account": "Valid key, unpaid account",
+      "expectedHttpStatus": 403,
+      "coverage": "Every connector operation"
+    },
+    {
+      "account": "Entitlement lookup unavailable",
+      "expectedHttpStatus": 503,
+      "coverage": "No library data returned"
+    },
+    {
+      "account": "Paid entitlement revoked",
+      "expectedHttpStatus": 403,
+      "coverage": "The next request is denied without restarting the client"
+    }
   ]
 }

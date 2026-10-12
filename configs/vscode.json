@@ -2,7 +2,18 @@
   "servers": {
     "vividsites": {
       "type": "http",
-      "url": "https://www.vividsites.app/api/connector"
+      "url": "https://www.vividsites.app/api/connector",
+      "headers": {
+        "Authorization": "Bearer ${input:vividsites-api-key}"
+      }
     }
-  }
+  },
+  "inputs": [
+    {
+      "type": "promptString",
+      "id": "vividsites-api-key",
+      "description": "VividSites API key (paid library account required)",
+      "password": true
+    }
+  ]
 }

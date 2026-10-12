@@ -1,7 +1,10 @@
 {
   "mcpServers": {
     "vividsites": {
-      "httpUrl": "https://www.vividsites.app/api/connector"
+      "httpUrl": "https://www.vividsites.app/api/connector",
+      "headers": {
+        "Authorization": "Bearer ${VIVIDSITES_API_KEY}"
+      }
     }
   }
 }

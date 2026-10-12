@@ -1,29 +1,24 @@
 # VividSites for Copilot Studio
 
-Search cinematic website templates, inspect previews, retrieve free build prompts, and obtain UI and 3D component source code. This connection is a public, unauthenticated library integration. Premium prompts, site generation, deployment, purchases and account operations are outside its scope.
+All six library tools require a paid VividSites library account and a personal API key. Search templates, inspect previews, retrieve build prompts and obtain UI/3D component code. No anonymous access is supported. Generation, publishing, purchases and payment collection are outside the connector's scope.
 
-## Private custom connector
-
-Use the Copilot Studio MCP onboarding wizard with:
+## Custom connector
 
 - Server name: VividSites
 - Server URL: `https://www.vividsites.app/api/connector`
-- Authentication: None
+- Authentication: API key, header `Authorization`
+- Credential value: `Bearer <personal VividSites API key>`
 - Transport: Streamable HTTP
 
-Alternatively import `apiDefinition.swagger.json` into Power Apps as an OpenAPI custom connector. It follows Microsoft's published MCP endpoint example and uses `x-ms-agentic-protocol: mcp-streamable-1.0`. The six tool definitions are discovered through MCP `tools/list`; they are not six separate REST endpoints.
+Alternatively import `apiDefinition.swagger.json`, which declares API-key security and Microsoft's `x-ms-agentic-protocol: mcp-streamable-1.0`. Tool definitions are discovered through authenticated MCP `tools/list`. Store the credential in the connection, never the published definition. Existing metered premium-prompt retrieval debits the customer's shared daily allowance; it does not initiate a payment or consume Create build credits.
 
-Test all cases in `../review/cases.json` within Copilot Studio. An imported schema alone does not establish runtime compatibility.
+Test `../review/cases.json` in a tenant. Schema validation does not establish runtime compatibility.
 
 ## Public certification
 
-This is a custom-connector starting package, not a certified Marketplace offer. Microsoft's public certification guide requires a verified Partner Center publisher enrolled in the Microsoft 365 and Copilot program, supporting metadata and documentation, test access, and an approved authentication method. The current free package intentionally has no authentication; certification eligibility for this configuration must be resolved before submission. Do not represent it as OAuth-enabled or invent test credentials.
+This is a custom-connector package, not a certified Marketplace offer. Public certification requires a verified Partner Center publisher, enrollment in Microsoft's program, supporting documentation, reviewer test access and authentication review. OAuth is not implemented; confirm API-key eligibility for the intended distribution route before submitting.
 
-The existing service supports bearer API keys for entitled accounts, but this release does not bundle authenticated premium access. Adding that scope needs separate entitlement and quota tests and corresponding listing updates.
-
-Sources:
-
-- [MCP onboarding and OpenAPI example](https://learn.microsoft.com/en-us/microsoft-copilot-studio/mcp-add-existing-server-to-agent)
-- [Microsoft MCP certification](https://learn.microsoft.com/en-us/microsoft-copilot-studio/mcp-server-certification)
+- [MCP onboarding](https://learn.microsoft.com/en-us/microsoft-copilot-studio/mcp-add-existing-server-to-agent)
+- [MCP certification](https://learn.microsoft.com/en-us/microsoft-copilot-studio/mcp-server-certification)
 
 Support: support@vividsites.app · https://www.vividsites.app/support

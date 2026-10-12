@@ -1,8 +1,8 @@
 {
   "displayName": "VividSites",
   "shortDescription": "Cinematic website templates and components",
-  "description": "Search cinematic website templates, preview designs, and retrieve free build prompts and UI or 3D component code.",
-  "longDescription": "Find website designs by style, theme and stack. Inspect poster and video previews, retrieve free template build prompts, and get editable HTML, CSS and JavaScript for UI and 3D components. This connector retrieves library assets; the host assistant can use them to build within the user\u2019s requested project. It does not generate or publish websites through VividSites Create. Premium prompts are not included in this unauthenticated connection.",
+  "description": "Search cinematic website templates, preview designs, and retrieve build prompts and UI or 3D component code. Paid VividSites account required.",
+  "longDescription": "Find website designs by style, theme and stack. Inspect previews, retrieve complete build prompts, and get editable component code. Every tool requires a valid personal API key and a paid VividSites library entitlement. No anonymous or unpaid connector access. The connector retrieves assets; the host assistant can implement them. It does not generate or publish via VividSites Create, initiate payments, or consume Create build credits. Metered plans share the existing premium-prompt allowance with the website.",
   "publisher": "VividSites",
   "contactEmail": "support@vividsites.app",
   "website": "https://www.vividsites.app",
@@ -11,12 +11,13 @@
   "support": "https://www.vividsites.app/support",
   "repository": "https://github.com/krumjahn/vividsites-connectors",
   "mcpUrl": "https://www.vividsites.app/api/connector",
-  "authentication": "none",
+  "authentication": "API key in Authorization: Bearer header",
   "category": "Developer Tools / Design",
   "demoUrl": "https://www.vividsites.app/review/vividsites-chatgpt-2026-10.mp4",
   "examples": [
     "Find three cinematic landing-page templates and show their previews.",
-    "Get the complete free build prompt for cinematic.",
+    "Get the complete build prompt for cinematic.",
     "Find a magnetic button and retrieve its HTML, CSS and JavaScript."
-  ]
+  ],
+  "demoNote": "Existing walkthrough predates paid-only authentication; it demonstrates tool outputs, not current onboarding."
 }
