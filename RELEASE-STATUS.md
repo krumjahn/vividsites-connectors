@@ -7,9 +7,10 @@ Repository: https://github.com/krumjahn/vividsites-connectors
 ## Verification
 
 - Backend paid-access tests: 10 passed, covering anonymous/invalid/unpaid denial, all paid plans, AppSumo revocation, lookup failures, batches, all six tools and the older MCP prompt endpoint.
-- TypeScript and catalog checks passed. Local full build encountered existing Google Fonts network timeouts; deployment build status is tracked in [backend PR #22](https://github.com/micahc123/uiprompts/pull/22).
+- TypeScript and catalog checks passed. The Vercel preview and production builds passed for [backend PR #22](https://github.com/micahc123/uiprompts/pull/22), now merged and deployed. Local build had encountered Google Fonts network timeouts.
 - Agent Plugins manifests and Microsoft OpenAPI pass their official schemas. Claude plugin and marketplace manifests pass `claude plugin validate`.
 - Gemini v1.0.0 previously installed and connected in isolated profiles. This does not validate v2 paid authentication; v2 host runtime testing requires a paid account key.
+- Production: anonymous initialization/discovery/all six calls are denied; a real paid account successfully initialized and retrieved all six tool outputs, including the full prompt and component source. Unknown UUID keys return 401. [PR #23](https://github.com/micahc123/uiprompts/pull/23) corrects malformed UUID keys to 401; its preview build and live access-denial tests passed.
 - Other host authenticated runtimes are not yet verified. Configuration validation does not establish compatibility with every host or account.
 
 ## Marketplace progress
