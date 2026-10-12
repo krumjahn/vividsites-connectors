@@ -27,14 +27,16 @@ The extension requests your VividSites API key as a sensitive installation setti
 
 ### Claude Code
 
-Supply `VIVIDSITES_API_KEY` through your local environment, then install:
+Install the plugin, then enter your paid-account API key in Claude Code’s masked plugin configuration prompt:
 
 ```sh
 claude plugin marketplace add krumjahn/vividsites-connectors
 claude plugin install vividsites@vividsites
 ```
 
-The `.mcp.json` manifest reads that environment variable in its Authorization header. No key is bundled. Alternatively add the remote endpoint and Bearer header through your client's private MCP configuration.
+The Claude manifest declares a required, sensitive `userConfig` setting. `.mcp.json` uses `${user_config.VIVIDSITES_API_KEY}` in its Authorization header; no key is bundled or read implicitly from the environment. Use a current Claude Code release supporting plugin user configuration.
+
+This direct Claude Code installation is separate from a public Claude directory listing. Anthropic’s directory requires a separate connector submission for our remote server and OAuth 2.0 for authenticated remote MCP servers. The current API-key service does not yet satisfy that directory requirement. See [Anthropic’s plugin submission guide](https://claude.com/docs/plugins/submit) and [Software Directory Policy](https://support.claude.com/en/articles/13145358-anthropic-software-directory-policy).
 
 ### Cursor
 

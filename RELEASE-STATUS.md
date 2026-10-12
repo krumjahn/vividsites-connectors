@@ -21,7 +21,7 @@ Repository: https://github.com/krumjahn/vividsites-connectors
 | Cursor | Native package prepared and publisher form filled. Not submitted: Publisher Terms section 3.1 needs clarification for paid-only external service access |
 | Grok Bot | Public listing and authenticated host setup unconfirmed |
 | Muse | Submitted, confirmed by the publisher on October 12, 2026; approval not yet confirmed |
-| Claude / Cowork | Claude Code package updated; web clients require API-key header support; OAuth is not implemented |
+| Claude / Cowork | Not submitted. Claude Code v2.0.1 uses a required sensitive API-key setting. Directory submission requires Claude login and OAuth for our remote connector |
 | Kimi Work / Code | Manifest updated with bearerTokenEnvVar; paid host runtime test and public review pending |
 | Qwen Work / Code | Code config requires an API key; Work authenticated setup/public listing unverified |
 | Microsoft Copilot Studio | API-key OpenAPI definition ready; tenant test and public certification pending |
@@ -51,3 +51,11 @@ For authenticated checks, supply VIVIDSITES_API_KEY and optionally VIVIDSITES_UN
 The native `.cursor-plugin/plugin.json` declares a required paid-account API-key variable and selects `configs/cursor-plugin.json`. The Cursor marketplace manifest selects the native package. Cursor’s official template validator and variable/schema checks passed, as did live anonymous/invalid-key denial checks. Native Cursor installation and credential UI have not yet been runtime-tested.
 
 The publisher form is filled but not submitted. [Publisher Terms section 3.1](https://cursor.com/marketplace-publisher-terms) prohibits direct or indirect fees for access/use of a Marketplace plugin. Whether an existing paid VividSites subscription is allowed needs clarification; no terms acceptance or free-access change has been made.
+
+## Claude marketplace preparation — October 12, 2026
+
+The Marketplace “Submit a plugin” link leads to the [plugin submission guide](https://claude.com/docs/plugins/submit) and [developer portal](https://claude.ai/directory/manage). The portal redirected to sign-in; no draft or submission confirmation was obtained.
+
+Claude manifest v2.0.1 now declares a required sensitive `userConfig.VIVIDSITES_API_KEY` and the MCP header references `${user_config.VIVIDSITES_API_KEY}`. This replaces implicit environment credential access, as recommended by the [pre-submission checklist](https://claude.com/docs/plugins/pre-submission-checklist). Manifest and marketplace validation passed with local Claude Code 2.1.214. This is structural validation, not an authenticated Claude runtime test or portal validation.
+
+The [directory guide](https://claude.com/docs/directory/publish) requires a separate MCP connector submission for a remote server owned by the plugin publisher. [Software Directory Policy section 5.D](https://support.claude.com/en/articles/13145358-anthropic-software-directory-policy) requires OAuth 2.0 for authenticated remote MCP servers. The current VividSites service is API-key only; OAuth remains an implementation prerequisite. No authentication bypass, free-access exception, or false OAuth declaration has been introduced. A dedicated review account is also required by policy section 3.D; no personal customer key has been shared with Anthropic.
