@@ -1,6 +1,6 @@
 {
   "name": "vividsites",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "description": "Search cinematic website templates, preview designs, and retrieve build prompts and UI or 3D component code. Paid VividSites account required.",
   "author": {
     "name": "VividSites",
@@ -25,5 +25,11 @@
       "required": true,
       "sensitive": true
     }
-  }
+  },
+  "displayName": "VividSites",
+  "icon": "./assets/icon.png",
+  "documentationUrl": "https://www.vividsites.app/mcp",
+  "supportUrl": "https://www.vividsites.app/support",
+  "privacyPolicyUrl": "https://www.vividsites.app/privacy",
+  "termsOfServiceUrl": "https://www.vividsites.app/terms"
 }
