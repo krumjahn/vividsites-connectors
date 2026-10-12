@@ -21,7 +21,7 @@ Repository: https://github.com/krumjahn/vividsites-connectors
 | Cursor | Native package prepared and publisher form filled. Not submitted: Publisher Terms section 3.1 needs clarification for paid-only external service access |
 | Grok Bot | Public listing and authenticated host setup unconfirmed |
 | Muse | Submitted, confirmed by the publisher on October 12, 2026; approval not yet confirmed |
-| Claude / Cowork | Not submitted. Claude Code v2.0.1 uses a required sensitive API-key setting. Directory submission requires Claude login and OAuth for our remote connector |
+| Claude / Cowork | Draft saved in Claude portal; not submitted. v2.0.2 passed portal validation with 5 reviewer holds. OAuth remains required for the remote connector directory submission |
 | Kimi Work / Code | Manifest updated with bearerTokenEnvVar; paid host runtime test and public review pending |
 | Qwen Work / Code | Code config requires an API key; Work authenticated setup/public listing unverified |
 | Microsoft Copilot Studio | API-key OpenAPI definition ready; tenant test and public certification pending |
@@ -59,3 +59,11 @@ The Marketplace “Submit a plugin” link leads to the [plugin submission guide
 Claude manifest v2.0.1 now declares a required sensitive `userConfig.VIVIDSITES_API_KEY` and the MCP header references `${user_config.VIVIDSITES_API_KEY}`. This replaces implicit environment credential access, as recommended by the [pre-submission checklist](https://claude.com/docs/plugins/pre-submission-checklist). Manifest and marketplace validation passed with local Claude Code 2.1.214. This is structural validation, not an authenticated Claude runtime test or portal validation.
 
 The [directory guide](https://claude.com/docs/directory/publish) requires a separate MCP connector submission for a remote server owned by the plugin publisher. [Software Directory Policy section 5.D](https://support.claude.com/en/articles/13145358-anthropic-software-directory-policy) requires OAuth 2.0 for authenticated remote MCP servers. The current VividSites service is API-key only; OAuth remains an implementation prerequisite. No authentication bypass, free-access exception, or false OAuth declaration has been introduced. A dedicated review account is also required by policy section 3.D; no personal customer key has been shared with Anthropic.
+
+### Signed-in portal validation — October 12, 2026
+
+[Draft in Claude](https://claude.ai/directory/manage/plugins/4a3e11c0-3bde-4637-88e4-893369487185) saved in the publisher’s personal Pro organization. Source: repository root, main commit 562aa3b, plugin version 2.0.2. Directory validation passed with five policy holds: four concern VividSites-only credential references in the other hosts’ configurations; one concerns a documentation reference to the logo. The portal explicitly allows submission with these reviewer holds. Five additional warnings concern documented directory metadata fields ignored by the older manifest validator.
+
+The portal preview initially inferred incorrect support and documentation links from the multi-platform README. Explicit display name, icon, support, documentation, privacy and terms fields now correct the listing; re-validation succeeded. Data-handling answers disclose personal-data reads/storage and retention longer than 30 days (account-linked usage records), no skill sends to undeclared services, and no child-directed purpose. Contact: support@vividsites.app. Compliance attestations were left unchecked because the remote authenticated server still lacks the required OAuth implementation. No submission or approval is claimed.
+
+The custom-connector UI does offer API-key request headers under “No sign-in”; that custom installation capability does not remove the Software Directory Policy’s OAuth requirement. No personal API key was entered or shared, and no custom connector was added in this attempt.
