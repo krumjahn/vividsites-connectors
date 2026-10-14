@@ -1,6 +1,6 @@
 # Distribution status
 
-Updated October 12, 2026 (Asia/Hong_Kong). Version 2.0.0 requires a paid account for every connector operation. Version 1.0.0's keyless instructions are obsolete. Published packages are not marketplace approvals.
+Updated October 14, 2026 (Asia/Hong_Kong). Version 2.0.0 requires a paid account for every connector operation. Version 1.0.0's keyless instructions are obsolete. Published packages are not marketplace approvals.
 
 Repository: https://github.com/krumjahn/vividsites-connectors
 
@@ -17,7 +17,7 @@ Repository: https://github.com/krumjahn/vividsites-connectors
 
 | Platform | Status |
 | --- | --- |
-| Gemini CLI | Repository published with gallery topic; sensitive API-key setting added; gallery listing unconfirmed |
+| Gemini CLI | Automatic-gallery publishing requirements verified October 14; official validation and isolated v2 release installation passed. Gallery index has not yet listed VividSites |
 | Cursor | Native package prepared and publisher form filled. Not submitted: Publisher Terms section 3.1 needs clarification for paid-only external service access |
 | Grok Bot | Public listing and authenticated host setup unconfirmed |
 | Muse | Submitted, confirmed by the publisher on October 12, 2026; approval not yet confirmed |
@@ -67,3 +67,21 @@ The [directory guide](https://claude.com/docs/directory/publish) requires a sepa
 The portal preview initially inferred incorrect support and documentation links from the multi-platform README. Explicit display name, icon, support, documentation, privacy and terms fields now correct the listing; re-validation succeeded. Data-handling answers disclose personal-data reads/storage and retention longer than 30 days (account-linked usage records), no skill sends to undeclared services, and no child-directed purpose. Contact: support@vividsites.app. Compliance attestations were left unchecked because the remote authenticated server still lacks the required OAuth implementation. No submission or approval is claimed.
 
 The custom-connector UI does offer API-key request headers under “No sign-in”; that custom installation capability does not remove the Software Directory Policy’s OAuth requirement. No personal API key was entered or shared, and no custom connector was added in this attempt.
+
+## Gemini CLI gallery verification — October 14, 2026
+
+Google’s [release guide](https://geminicli.com/docs/extensions/releasing/) uses automatic gallery discovery, with no submission form, issue, or email required. The repository is public, has the exact `gemini-cli-extension` topic, and contains `gemini-extension.json` at its root. GitHub’s topic search returned this repository. The repository description and manifest both disclose the paid-account requirement.
+
+Gemini CLI 0.60.0 validation passed (`gemini extensions validate .`). A fresh isolated profile successfully installed from the public GitHub URL with `--consent --skip-settings`. `gemini extensions list` confirmed release v2.0.0, the VividSites MCP server, the library skill, and the API-key setting. Its manifest uses the sensitive key setting and Bearer header. The test intentionally skipped credentials and does not claim an authenticated Gemini tool call; the service’s paid-access verification is recorded above.
+
+The public [gallery index](https://geminicli.com/extensions.json) returned HTTP 200 with 2,182 entries and no VividSites match on October 14. Its Last-Modified value was October 7, 2026 at 04:12:27 UTC, before our October 12 release. The current index does not establish why the extension is missing or whether a newer crawl has run. Status: publishing requirements met; gallery appearance pending. No manual submission or Google endorsement is claimed.
+
+Reproduce the local checks:
+
+```sh
+gemini extensions validate .
+gemini extensions install https://github.com/krumjahn/vividsites-connectors
+gemini extensions list
+```
+
+For an isolated installation test, set `GEMINI_CLI_HOME` to a fresh temporary profile and pass `--consent --skip-settings`. Customers must configure their own paid-account key before using any tool.
