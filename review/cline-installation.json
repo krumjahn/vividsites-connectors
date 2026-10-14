@@ -1,0 +1,26 @@
+{
+  "client": "Cline SDK",
+  "sdkVersion": "0.0.93",
+  "providerId": "openai-codex-cli",
+  "modelId": "gpt-5.6-sol",
+  "installed": true,
+  "verified": true,
+  "tools": [
+    "search_sites",
+    "get_build_prompt",
+    "get_template_preview",
+    "search_components",
+    "get_component",
+    "video_prompt_formula"
+  ],
+  "authenticatedSearch": true,
+  "resultBytes": 629,
+  "status": "completed",
+  "date": "2026-10-14",
+  "sourceCommit": "7e72fd0",
+  "installationGuide": "llms-install.md",
+  "method": "Cline SDK Agent read the installation guide and configured an isolated private profile via constrained setup controls. Cline SDK MCP client loaded that configuration, initialized the live server, discovered six tools, and called search_sites. The host supplied the paid-account credential privately; it was not included in the model prompt.",
+  "nativeIdeTested": false,
+  "nativeCliTested": false,
+  "credentialPublished": false
+}
