@@ -17,6 +17,14 @@ The connector supplies library assets. It does not run VividSites Create builds,
 
 ## Install
 
+### Cline
+
+Follow [llms-install.md](llms-install.md), or merge [configs/cline.json](configs/cline.json) into Cline’s private MCP configuration. Select Streamable HTTP and replace the literal key placeholder privately. Leave tool approvals enabled. A paid VividSites key and a separately authenticated Cline model provider are required. Marketplace submission and approval are separate from this custom setup.
+
+### Codex
+
+Follow the [Codex setup guide](docs/codex.md). The CLI reads `VIVIDSITES_API_KEY` from its process environment; [configs/codex.toml](configs/codex.toml) stores only the variable name. Restart in an environment containing your personal paid-account key, inspect `/mcp`, and verify a tool call.
+
 ### Gemini CLI
 
 ```sh
@@ -50,7 +58,7 @@ Merge [Copilot CLI config](configs/copilot-cli.json) into your **personal** MCP 
 
 ### VS Code / GitHub Copilot
 
-Merge [configs/vscode.json](configs/vscode.json) into `.vscode/mcp.json`. VS Code prompts for the key through a password input; the shared file contains only the input reference. See [VS Code input variables](https://code.visualstudio.com/docs/agents/reference/mcp-configuration).
+Follow the [VS Code / GitHub Copilot setup guide](docs/vscode.md). Merge [configs/vscode.json](configs/vscode.json) into `.vscode/mcp.json`; VS Code requests the key through a password input and the shared file contains only that reference.
 
 ### Kimi Work / Kimi Code
 

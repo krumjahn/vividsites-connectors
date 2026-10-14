@@ -1,0 +1,3 @@
+[mcp_servers.vividsites]
+url = "https://www.vividsites.app/api/connector"
+bearer_token_env_var = "VIVIDSITES_API_KEY"

@@ -1,0 +1,13 @@
+{
+  "mcpServers": {
+    "vividsites": {
+      "type": "streamableHttp",
+      "url": "https://www.vividsites.app/api/connector",
+      "headers": {
+        "Authorization": "Bearer YOUR_VIVIDSITES_API_KEY"
+      },
+      "disabled": false,
+      "autoApprove": []
+    }
+  }
+}
