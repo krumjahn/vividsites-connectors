@@ -18,6 +18,8 @@ Repository: https://github.com/krumjahn/vividsites-connectors
 | Platform | Status |
 | --- | --- |
 | Gemini CLI | Automatic-gallery publishing requirements verified October 14; official validation and isolated v2 release installation passed. Gallery index has not yet listed VividSites |
+| Cline | Submitted October 14: [marketplace issue #2982](https://github.com/cline/mcp-marketplace/issues/2982). Cline SDK agent installation, MCP discovery and paid search passed; approval pending |
+| Codex | Paid-account CLI setup guide and environment-token configuration published; installed Codex accepted the configuration. Native authenticated Codex connection not yet tested |
 | Cursor | Submitted, confirmed by the publisher on October 14, 2026. Review/approval not yet confirmed |
 | Grok Bot | Public listing and authenticated host setup unconfirmed |
 | Muse | Submitted, confirmed by the publisher on October 12, 2026; approval not yet confirmed |
@@ -25,7 +27,7 @@ Repository: https://github.com/krumjahn/vividsites-connectors
 | Kimi Work / Code | Manifest updated with bearerTokenEnvVar; paid host runtime test and public review pending |
 | Qwen Work / Code | Code config requires an API key; Work authenticated setup/public listing unverified |
 | Microsoft Copilot Studio | API-key OpenAPI definition ready; tenant test and public certification pending |
-| GitHub Copilot | Personal CLI config and VS Code password-input config available; registry approval not claimed |
+| GitHub Copilot | VS Code setup guide and password-input config published and structurally checked; native VS Code runtime test and public registry approval pending |
 | Gemini consumer | API-key support must be verified in the eligible user's account; no OAuth integration |
 | DeepSeek Cowork | Exact application must be identified before claiming compatibility or distribution |
 | ChatGPT | Previously submitted as a plugin, reconfirmed by the publisher; approval not confirmed. Earlier keyless configuration needs reconciliation with current paid-only access |
@@ -89,3 +91,19 @@ For an isolated installation test, set `GEMINI_CLI_HOME` to a fresh temporary pr
 ## Cursor submission confirmed — October 14, 2026
 
 The publisher confirmed that the Cursor marketplace application is already submitted. Do not duplicate the application or ask the publisher to submit it again. Grok Bot availability remains unconfirmed; mentioning Grok Bot in the application is optional, and the existing application need not be redone solely to add that wording. No reviewer response or approval has been observed.
+
+## Cline submission and developer setup — October 14, 2026
+
+Cline marketplace submission: https://github.com/cline/mcp-marketplace/issues/2982. The repository was checked for duplicates before submission. The template’s `server-submission` label was unavailable; the first labeled attempt created no issue, and the verified retry created one unlabeled issue. Review/approval remains pending.
+
+Published `llms-install.md`, `configs/cline.json`, `configs/codex.toml`, `docs/codex.md`, `docs/vscode.md`, `assets/icon-400.png`, and sanitized `review/cline-installation.json`. The README links the setup guides. Cline uses an explicit Streamable HTTP transport and a privately replaced literal key placeholder. Codex stores the environment-variable name only. VS Code uses a masked password input. No credentials appear in these files.
+
+Verification:
+
+- Cline SDK 0.0.93 agent received only the installation guide and configured an isolated private profile through constrained setup controls. Its model provider was Cline’s supported `openai-codex-cli` integration with the existing ChatGPT login. Cline’s own MCP client initialized the hosted paid endpoint, discovered all six tools, and successfully called `search_sites`. The host supplied the paid credential privately, outside the model prompt. The installation trial completed successfully.
+- The native Cline 3.0.71 executable stalled before its command handler on this Mac. The SDK trial is documented explicitly in the submission; native CLI and IDE UI verification is not claimed.
+- Installed Codex accepted the server URL and `bearer_token_env_var` configuration through `codex mcp get vividsites --json` with temporary command-line config overrides; user settings were not changed. Native authenticated Codex MCP execution remains unverified.
+- VS Code and Cline JSON and Codex TOML parsed and credential references/placeholders were checked. The icon is a 400×400 PNG. Native VS Code runtime execution remains unverified.
+- `python3 scripts/verify-live.py` passed anonymous and invalid-key denial; absent unpaid/paid environment credentials were explicitly skipped. A separate real paid-account Cline SDK call succeeded. `git diff --check` passed, and a scan confirmed the actual test credential was absent from tracked public files and the submission body.
+
+No free-access exception or change to backend access enforcement was made. All configuration examples continue requiring each customer’s own paid-account credential.
