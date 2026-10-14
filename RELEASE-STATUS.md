@@ -18,7 +18,7 @@ Repository: https://github.com/krumjahn/vividsites-connectors
 | Platform | Status |
 | --- | --- |
 | Gemini CLI | Automatic-gallery publishing requirements verified October 14; official validation and isolated v2 release installation passed. Gallery index has not yet listed VividSites |
-| Cursor | Native package prepared and publisher form filled. Not submitted: Publisher Terms section 3.1 needs clarification for paid-only external service access |
+| Cursor | Submitted, confirmed by the publisher on October 14, 2026. Review/approval not yet confirmed |
 | Grok Bot | Public listing and authenticated host setup unconfirmed |
 | Muse | Submitted, confirmed by the publisher on October 12, 2026; approval not yet confirmed |
 | Claude / Cowork | Draft saved in Claude portal; not submitted. v2.0.2 passed portal validation with 5 reviewer holds. OAuth remains required for the remote connector directory submission |
@@ -50,7 +50,7 @@ For authenticated checks, supply VIVIDSITES_API_KEY and optionally VIVIDSITES_UN
 
 The native `.cursor-plugin/plugin.json` declares a required paid-account API-key variable and selects `configs/cursor-plugin.json`. The Cursor marketplace manifest selects the native package. Cursor’s official template validator and variable/schema checks passed, as did live anonymous/invalid-key denial checks. Native Cursor installation and credential UI have not yet been runtime-tested.
 
-The publisher form is filled but not submitted. [Publisher Terms section 3.1](https://cursor.com/marketplace-publisher-terms) prohibits direct or indirect fees for access/use of a Marketplace plugin. Whether an existing paid VividSites subscription is allowed needs clarification; no terms acceptance or free-access change has been made.
+Historical status on October 12: the form was filled but not submitted while the paid external service terms were being checked. This is superseded by the publisher’s October 14 confirmation that the Cursor application has been submitted. No approval, terms clarification, or change to paid-account enforcement is implied by submission.
 
 ## Claude marketplace preparation — October 12, 2026
 
@@ -85,3 +85,7 @@ gemini extensions list
 ```
 
 For an isolated installation test, set `GEMINI_CLI_HOME` to a fresh temporary profile and pass `--consent --skip-settings`. Customers must configure their own paid-account key before using any tool.
+
+## Cursor submission confirmed — October 14, 2026
+
+The publisher confirmed that the Cursor marketplace application is already submitted. Do not duplicate the application or ask the publisher to submit it again. Grok Bot availability remains unconfirmed; mentioning Grok Bot in the application is optional, and the existing application need not be redone solely to add that wording. No reviewer response or approval has been observed.
