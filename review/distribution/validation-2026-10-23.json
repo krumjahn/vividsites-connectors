@@ -1,0 +1,27 @@
+{
+  "date": "2026-10-23",
+  "scope": "Distribution metadata and unauthenticated smoke checks",
+  "upstreamSchema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "upstreamSchemaValidation": "passed",
+  "clineCommonAndTypeValidation": "passed",
+  "devinOfficialValidatorIsolatedFixture": "passed",
+  "devinFixtureEntries": {
+    "authored": 1,
+    "upstream": 0
+  },
+  "setupPage": {
+    "source": "cline",
+    "httpStatus": 200,
+    "queryPreserved": true
+  },
+  "endpointChecks": {
+    "anonymousInitialize": 401,
+    "anonymousToolsList": 401,
+    "invalidKeyToolsList": 401
+  },
+  "paidAccountTest": "not rerun",
+  "nativeVSCodeTest": "not performed",
+  "nativeDevinTest": "not performed",
+  "credentialPublished": false,
+  "upstreamPublishPerformed": false
+}

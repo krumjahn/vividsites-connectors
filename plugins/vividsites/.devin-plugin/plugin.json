@@ -1,0 +1,25 @@
+{
+  "name": "vividsites",
+  "displayName": "VividSites",
+  "description": "Search cinematic website templates, preview designs, and retrieve build prompts and UI or 3D component code. An active paid VividSites library account and personal API key are required for every tool.",
+  "shortDescription": "Cinematic sites and UI components",
+  "homepage": "https://www.vividsites.app/mcp?utm_source=windsurf_devin&utm_medium=mcp_directory&utm_campaign=developer_distribution",
+  "repository": "https://github.com/krumjahn/vividsites-connectors",
+  "logo": "logo.png",
+  "keywords": [
+    "websites",
+    "templates",
+    "components",
+    "3d",
+    "design"
+  ],
+  "mcpServers": {
+    "vividsites": {
+      "url": "https://www.vividsites.app/api/connector",
+      "transport": "http",
+      "headers": {
+        "Authorization": "Bearer ${VIVIDSITES_API_KEY}"
+      }
+    }
+  }
+}

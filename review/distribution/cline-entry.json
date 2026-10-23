@@ -1,0 +1,33 @@
+{
+  "$schema": "https://raw.githubusercontent.com/cline/marketplace/main/schemas/mcp.schema.json",
+  "id": "vividsites",
+  "type": "mcp",
+  "name": "VividSites",
+  "tagline": "Cinematic website templates, build prompts and UI/3D component code. Paid account required.",
+  "description": "Search templates, inspect previews, retrieve complete build prompts, and get editable UI or 3D component code. All six tools require a personal VividSites API key and an active paid library account. The connector supplies library assets; it does not run VividSites Create builds, publish sites, purchase credits or initiate payments. OAuth is not implemented. Premium build-prompt retrieval can consume the account's existing daily library allowance. The MIT license covers the connector configuration, not catalog assets or paid service access.",
+  "author": {
+    "name": "VividSites",
+    "url": "https://www.vividsites.app"
+  },
+  "homepage": "https://www.vividsites.app/mcp?utm_source=cline&utm_medium=mcp_directory&utm_campaign=developer_distribution",
+  "repo": "https://github.com/krumjahn/vividsites-connectors",
+  "icon": "https://raw.githubusercontent.com/krumjahn/vividsites-connectors/7e72fd0/assets/icon-400.png",
+  "tags": [
+    "creative",
+    "software"
+  ],
+  "license": "MIT",
+  "verified": false,
+  "featured": false,
+  "install": {
+    "args": [
+      "vividsites",
+      "--transport",
+      "http",
+      "https://www.vividsites.app/api/connector",
+      "--header",
+      "Authorization: Bearer <VIVIDSITES_API_KEY>"
+    ],
+    "notes": "Replace the literal key placeholder privately using Cline's credential/configuration controls. Do not paste credentials in model chats, shared files, URLs, or shell history. Prefer the repository's llms-install.md private-configuration guide. Keep tool approvals enabled. A paid VividSites library account and a separately authenticated Cline model provider are required. Published October 14 evidence covers the Cline SDK; the current native CLI/IDE install command has not been runtime-verified."
+  }
+}

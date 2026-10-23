@@ -1,0 +1,54 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.krumjahn/vividsites",
+  "title": "VividSites",
+  "description": "Search cinematic templates, previews, build prompts and UI/3D code. Paid account required.",
+  "version": "2.0.2",
+  "websiteUrl": "https://www.vividsites.app/mcp?utm_source=mcp_registry&utm_medium=mcp_directory&utm_campaign=developer_distribution",
+  "repository": {
+    "url": "https://github.com/krumjahn/vividsites-connectors",
+    "source": "github",
+    "id": "1414587706"
+  },
+  "icons": [
+    {
+      "src": "https://raw.githubusercontent.com/krumjahn/vividsites-connectors/7e72fd0/assets/icon-400.png",
+      "mimeType": "image/png",
+      "sizes": [
+        "400x400"
+      ]
+    }
+  ],
+  "remotes": [
+    {
+      "type": "streamable-http",
+      "url": "https://www.vividsites.app/api/connector",
+      "headers": [
+        {
+          "name": "Authorization",
+          "description": "Your personal paid-account VividSites API key, entered privately.",
+          "isRequired": true,
+          "isSecret": true,
+          "value": "Bearer {VIVIDSITES_API_KEY}",
+          "variables": {
+            "VIVIDSITES_API_KEY": {
+              "description": "Personal API key from https://www.vividsites.app/mcp. Active paid library entitlement required.",
+              "isRequired": true,
+              "isSecret": true
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "_meta": {
+    "io.modelcontextprotocol.registry/publisher-provided": {
+      "supportUrl": "https://www.vividsites.app/support",
+      "privacyPolicyUrl": "https://www.vividsites.app/privacy",
+      "termsOfServiceUrl": "https://www.vividsites.app/terms",
+      "repositoryScope": "Connector configuration, installation documentation, skills and review materials; hosted application source is not included.",
+      "paidAccountRequired": true,
+      "oauthImplemented": false
+    }
+  }
+}
