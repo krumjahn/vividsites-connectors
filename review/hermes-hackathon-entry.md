@@ -35,7 +35,9 @@ The captioned file, when the render includes that recording, is `/opt/cursor/art
 
 ## Catalog patch
 
-`review/hermes-catalog-entry.yaml` is the proposed file for `NousResearch/hermes-agent` at `plugin-catalog/vividsites.yaml`. It is not an open pull request. The `sha` is the vividsites-connectors commit that contains this free-only `hermes/` package.
+`review/hermes-catalog-entry.yaml` is the proposed file for `NousResearch/hermes-agent` at `plugin-catalog/vividsites.yaml`. It is not an open pull request.
+
+Pin: `4e2e8a9ab1f40836554d6eb9994875fbea0ccf8e`
 
 `requires_env` is empty. There is no key.
 
