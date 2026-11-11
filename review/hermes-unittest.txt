@@ -1,0 +1,18 @@
+command: python3 -m unittest tests.test_hermes_access -v
+cwd: /workspace
+started: 2026-11-11T17:07:10Z
+test_document_must_repeat_boolean_free_and_safe_paths (tests.test_hermes_access.ClassificationTests.test_document_must_repeat_boolean_free_and_safe_paths) ... ok
+test_only_boolean_true_is_free (tests.test_hermes_access.ClassificationTests.test_only_boolean_true_is_free) ... ok
+test_paid_unknown_and_unsafe_slugs_are_not_fetched (tests.test_hermes_access.ClassificationTests.test_paid_unknown_and_unsafe_slugs_are_not_fetched) ... ok
+test_redirect_is_refused (tests.test_hermes_access.ClassificationTests.test_redirect_is_refused) ... /usr/lib/python3.12/unittest/case.py:589: ResourceWarning: unclosed <socket.socket fd=3, family=2, type=1, proto=0, laddr=('127.0.0.1', 45823)>
+  if method() is not None:
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+ok
+test_validator_and_live_tool_call (tests.test_hermes_access.HermesRuntimeTests.test_validator_and_live_tool_call) ... ok
+test_real_free_component_and_refused_template_id (tests.test_hermes_access.LiveRegistryTests.test_real_free_component_and_refused_template_id) ... ok
+
+----------------------------------------------------------------------
+Ran 6 tests in 12.205s
+
+OK
+exit_code: 0

@@ -1,0 +1,32 @@
+command: hermes plugins validate /tmp/pin-home/plugins/vividsites --install-deps
+source: hermes plugins install krumjahn/vividsites-connectors/hermes --ref 4e2e8a9ab1f40836554d6eb9994875fbea0ccf8e
+installed_revision: 4e2e8a9ab1f40836554d6eb9994875fbea0ccf8e
+subdir: hermes
+note: local hermes plugins validate --install-deps. Not a Hermes catalog CI job.
+started: 2026-11-11T17:07:00Z
+hermes: preparing dependencies for this data root (the checkout's updates belong to /home/ubuntu/.hermes)...
+Preparing the isolated Hermes runtime…
+  → Installing Python dependencies…
+  ✓ Installing Python dependencies
+  → Installing Python dependencies…
+  ✓ Installing Python dependencies
+
+✓ manifest — plugin.yaml parses
+✓ manifest fields — name, version, description present
+✓ requires_hermes — spec '>=0.23.1' parses
+✓ config schema — not declared
+✓ requires_env — all entries UPPER_SNAKE
+✓ oauth — not declared
+✓ loadable — entry: __init__.py
+✓ python dependencies — none declared
+✓ capability probe — register() ran in isolation
+✓ declared tools — matches registrations
+✓ declared hooks — matches registrations
+✓ declared middleware — matches registrations
+✓ built-in tool collisions — no collisions
+✓ security scan — safe
+✓ no core override — no runtime rebinds of Hermes core
+◆ Isolation — runs in the plugin host (plugins.isolation: host)
+
+Validation passed.
+exit_code: 0

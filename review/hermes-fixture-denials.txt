@@ -1,0 +1,14 @@
+source: /tmp/pin-home/plugins/vividsites/registry.py
+pin_tree: installed from 4e2e8a9ab1f40836554d6eb9994875fbea0ccf8e subdir hermes
+fixture denials (no network):
+REFUSED 'paid-widget': not a free component
+REFUSED 'mystery-widget': not a free component
+REFUSED '../paid-widget': slug refused
+REFUSED 'https://evil.test/r/a.json': slug refused
+REFUSED 'cinematic': not a free component
+REFUSED '': slug refused
+REFUSED 'magnetic-button/../../etc': slug refused
+fetcher_calls: []
+REFUSED document free='true': component classification refused
+REFUSED document path '../secret.html': component path refused
+done

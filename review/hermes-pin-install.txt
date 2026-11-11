@@ -1,0 +1,21 @@
+command: hermes plugins install krumjahn/vividsites-connectors/hermes --ref 4e2e8a9ab1f40836554d6eb9994875fbea0ccf8e --yes-deps --enable
+hermes_home: /tmp/pin-home
+started: 2026-11-11T17:06:11Z
+hermes: preparing dependencies for this data root (the checkout's updates belong to /home/ubuntu/.hermes)...
+Preparing the isolated Hermes runtime…
+  → Installing Python dependencies…
+  ✓ Installing Python dependencies
+  → Installing Python dependencies…
+  ✓ Installing Python dependencies
+Warning: custom (unreviewed) source — not from the Hermes catalog.
+Cloning https://github.com/krumjahn/vividsites-connectors.git (subdir: 
+hermes)...
+
+╭────────────────────── ✓ Installed ──────────────────────╮
+│ Plugin installed: krumjahn/vividsites-connectors/hermes │
+│ Location: /tmp/pin-home/plugins/vividsites              │
+╰─────────────────────────────────────────────────────────╯
+
+✓ Plugin vividsites enabled.
+
+exit_code: 0

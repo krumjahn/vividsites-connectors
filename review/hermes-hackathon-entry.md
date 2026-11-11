@@ -29,9 +29,19 @@ Free VividSites components now load in Hermes. The plugin reads the public regis
 
 ## What the clip is
 
-`/opt/cursor/artifacts/hermes-free-components-raw.mp4` is the terminal recording of Hermes 0.23.1. It shows `hermes plugins validate` accepting `plugin.yaml`, then a real `get_free_component` result for `magnetic-button` (`free: true`, 15425 bytes, kind `free_component`) and refusals for `cinematic`, `../secret`, and `https://evil.test/r/a.json`.
+Final demo, independent video review passed: `/opt/cursor/artifacts/hermes-free-components-final.mp4`. Duration 18.733 seconds. It is the raw terminal recording trimmed to 00:05.820–00:24.550, with a 120px caption band added above the unscaled terminal. Captions do not cover the output. The held frame shows `magnetic-button`, `"free": true`, the `refused` array, and the lines that paid success, unpaid 403, and account scoping were not run.
 
-`/opt/cursor/artifacts/hermes-free-components-captioned.mp4` is that recording with a HyperFrames caption band. The terminal pixels are in the frame. The band covers the lower lines, so the raw recording is the full JSON. The caption states the same result: `magnetic-button`, `meta.free` true, 15425 bytes, and the three refusals. It is 18 seconds. It is not a paid-catalog demo.
+The earlier raw file and the 18-second lower-third cut are not the review cut. The lower-third covered the refusal lines.
+
+## Local checks, not catalog CI
+
+`hermes plugins validate --install-deps` passed on the working tree and on a Hermes install of public commit `4e2e8a9ab1f40836554d6eb9994875fbea0ccf8e`, subdirectory `hermes`. No Python dependencies are declared. This is not a Hermes catalog CI run. Logs:
+
+- `review/hermes-validate-install-deps.txt` exit 0
+- `review/hermes-pin-install.txt` exit 0
+- `review/hermes-pin-validate-install-deps.txt` exit 0
+- `review/hermes-unittest.txt` exit 0 (`python3 -m unittest tests.test_hermes_access -v`, 6 tests)
+- `review/hermes-fixture-denials.txt` fixture refusals, no network fetch
 
 ## Catalog patch
 
