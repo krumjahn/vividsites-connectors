@@ -107,3 +107,17 @@ Verification:
 - `python3 scripts/verify-live.py` passed anonymous and invalid-key denial; absent unpaid/paid environment credentials were explicitly skipped. A separate real paid-account Cline SDK call succeeded. `git diff --check` passed, and a scan confirmed the actual test credential was absent from tracked public files and the submission body.
 
 No free-access exception or change to backend access enforcement was made. All configuration examples continue requiring each customer’s own paid-account credential.
+
+## Hermes — November 11, 2026
+
+`hermes/` is a portable Hermes Agent package for 0.23.1 or newer. It is not a `plugin.yaml` plugin: that manifest would take precedence and Hermes would not load `mcp.json`. The header is `Authorization: Bearer ${VIVIDSITES_API_KEY}`. Hermes resolves it from the profile and fails closed when it is unset. The root `mcp.json` still has no header.
+
+`hermes plugins validate ./hermes` passed on Hermes 0.23.1. A real Hermes process then produced three outcomes, stored without catalog bodies in `review/hermes-auth-evidence.json`:
+
+- Missing key: no request. Error names `${VIVIDSITES_API_KEY}` as unset.
+- Live `POST https://www.vividsites.app/api/connector` with a non-credential: HTTP 401 `invalid_api_key`. No tool list and no catalog payload.
+- Local synthetic MCP fixture: Hermes called `mcp__vividsites__synthetic_status` and the result contained the fixture marker. That server is not VividSites.
+
+Separate direct requests, also without storing bodies, got HTTP 401 `authentication_required` for initialization, discovery, all six tools, and `search_sites` with `tier=free`. A non-key and the literal placeholder got HTTP 401 `invalid_api_key` on `get_build_prompt`.
+
+Not proven: unpaid HTTP 403, a paid account calling all six tools, and cross-account scoping. No paid key was available. The public component registry is a different endpoint. Every listed registry item had `meta.free: true`. `cinematic.json` on that registry returned 404. This package does not call it. The connector has no free-only mode. No production change was made.

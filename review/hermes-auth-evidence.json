@@ -1,0 +1,61 @@
+{
+  "hermes": "0.23.1",
+  "live_denial_sample": "see unittest; bodies not stored",
+  "unpaid_403": "UNPROVEN: VIVIDSITES_UNPAID_API_KEY unset",
+  "account_scope": "UNPROVEN: no paid key and no second account",
+  "free_only_connector": "not supported; tier=free without a key is authentication_required",
+  "runtime": [
+    {
+      "case": "missing",
+      "runtime": "hermes",
+      "target": "no request",
+      "outcome": "fail_closed_missing_credential",
+      "catalog_payload": false,
+      "token_leaked": false,
+      "detail": {
+        "vividsites": "MCP server 'vividsites': ${VIVIDSITES_API_KEY} in url/headers is not set in this profile's .env or secret source"
+      }
+    },
+    {
+      "case": "live",
+      "runtime": "hermes",
+      "target": "https://www.vividsites.app/api/connector",
+      "outcome": "live_denied",
+      "catalog_payload": false,
+      "token_leaked": false,
+      "detail": {
+        "vividsites": "MCP server 'vividsites': Streamable HTTP connect failed (Server returned an error response (HTTP 401 from POST https://www.vividsites.app/api/connector: {\"error\":\"invalid_api_key\",\"message\":\"The VividSites API key is invalid or has been revoked.\"})); Server returned an error response"
+      }
+    },
+    {
+      "case": "synthetic",
+      "runtime": "hermes",
+      "target": "127.0.0.1 synthetic fixture",
+      "outcome": "synthetic_tool_called",
+      "invocation": {
+        "tool": "mcp__vividsites__synthetic_status",
+        "marker": true,
+        "length": 135
+      },
+      "tool_names": [
+        "mcp__vividsites__synthetic_status",
+        "mcp__vividsites__list_resources",
+        "mcp__vividsites__read_resource",
+        "mcp__vividsites__list_prompts",
+        "mcp__vividsites__get_prompt"
+      ],
+      "catalog_payload": false,
+      "token_leaked": false,
+      "detail": [
+        "httpx2 INFO HTTP Request: POST http://127.0.0.1:59485/mcp \"HTTP/1.1 202 Accepted\"",
+        "mcp.server.streamable_http INFO Terminating session: None",
+        "httpx2 INFO HTTP Request: POST http://127.0.0.1:59485/mcp \"HTTP/1.1 200 OK\"",
+        "tools.mcp_tool INFO MCP server 'vividsites' (HTTP): registered 5 tool(s): mcp__vividsites__synthetic_status, mcp__vividsites__list_resources, mcp__vividsites__read_resource, mcp__vividsites__list_prompts, mcp__vividsites__get_prompt",
+        "tools.mcp_tool INFO MCP: registered 5 tool(s) from 1 server(s)",
+        "tools.mcp_tool INFO   MCP: 5 tool(s) from 1 server(s)",
+        "mcp.server.streamable_http INFO Terminating session: None",
+        "httpx2 INFO HTTP Request: POST http://127.0.0.1:59485/mcp \"HTTP/1.1 200 OK\""
+      ]
+    }
+  ]
+}
