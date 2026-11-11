@@ -1,0 +1,19 @@
+name: vividsites
+version: "1.0.0"
+description: Search cinematic website templates, previews, build prompts, and UI or 3D component source with a paid VividSites library account.
+author: VividSites
+requires_hermes: ">=0.23.1"
+provides_tools:
+  - vividsites_search_sites
+  - vividsites_get_template_preview
+  - vividsites_get_build_prompt
+  - vividsites_search_components
+  - vividsites_get_component
+  - vividsites_video_prompt_formula
+provides_hooks:
+  - pre_tool_call
+requires_env:
+  - name: VIVIDSITES_API_KEY
+    description: Personal API key for an active paid VividSites library account. Assistant subscriptions and Create credits do not include library access.
+    url: https://www.vividsites.app/mcp
+    secret: true

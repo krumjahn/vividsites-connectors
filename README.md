@@ -17,6 +17,10 @@ The connector supplies library assets. It does not run VividSites Create builds,
 
 ## Install
 
+### Hermes Agent
+
+The native Hermes package is in [`hermes/`](hermes/README.md), with six tools, a bundled library skill, profile-scoped credentials, and approval for build-prompt retrieval that may consume allowance. See its README for installation, disclosure, and validation. A catalog listing is separate and is not yet confirmed.
+
 ### Cline
 
 Follow [llms-install.md](llms-install.md), or merge [configs/cline.json](configs/cline.json) into Cline’s private MCP configuration. Select Streamable HTTP and replace the literal key placeholder privately. Leave tool approvals enabled. A paid VividSites key and a separately authenticated Cline model provider are required. Marketplace submission and approval are separate from this custom setup.
