@@ -2,12 +2,14 @@
 
 Do not post, do not open the catalog pull request, and do not submit the form. The parent does those steps after checking this file against the evidence.
 
+This entry is FREE-ONLY. It covers public components, not templates and not build prompts.
+
 ## Form fields
 
 | Field | Value |
 | --- | --- |
-| Plugin Title | VividSites |
-| Plugin Description | Search VividSites templates, previews, build prompts, and UI or 3D components from Hermes. Each person uses their own paid library key. The plugin does not include a key. |
+| Plugin Title | VividSites free components |
+| Plugin Description | Lists and fetches public VividSites components whose registry meta.free value is boolean true. Components only. No paid templates, no build prompts, and no API key. |
 | Email Address | keith@rumjahn.com |
 | Discord Username | feriosa2025 |
 | X Demo Post Link | not posted |
@@ -17,62 +19,50 @@ Poster account for the X draft: @rumjahn. Tag in the draft: @NousResearch.
 
 ## Proposed X post
 
-This matches the captured clip. It is not a successful paid-catalog retrieval.
+This matches the free-component recording. It does not claim a paid-library result.
 
 ```
-VividSites loads in Hermes as a plugin. Your own paid library key stays in Hermes. This clip is Hermes 0.23.1: a missing key never leaves the machine, and the live connector returns 401 for a key that is not a paid entitlement. The local tool call is a synthetic fixture. No paid template is in the video.
+Free VividSites components now load in Hermes. The plugin reads the public registry and returns a component only when meta.free is true. magnetic-button came back as a component. A template id, a path, and a URL were refused. No key, no paid templates.
 
 @NousResearch
 ```
 
 ## What the clip is
 
-`/opt/cursor/artifacts/hermes-live-probe-raw.mp4` is the terminal recording of Hermes 0.23.1. It is 42 seconds. This is the evidence. It shows the three JSON results below. It does not show a paid catalog result.
+`/opt/cursor/artifacts/hermes-free-components-raw.mp4` is the terminal recording of Hermes 0.23.1. It shows `hermes plugins validate` accepting `plugin.yaml`, then a real `get_free_component` result for `magnetic-button` (`free: true`, 15425 bytes, kind `free_component`) and refusals for `cinematic`, `../secret`, and `https://evil.test/r/a.json`.
 
-A HyperFrames caption pass was rendered to `/opt/cursor/artifacts/hermes-vividsites-evidence.mp4`. The headless capture did not load `proof.mp4` (the render log reports 404), so that file is captions on a blank frame. It is not the proof and must not be posted as the demo.
-
-It shows three things:
-
-1. Missing `VIVIDSITES_API_KEY`: Hermes fails closed and does not send the placeholder.
-2. Live `POST https://www.vividsites.app/api/connector` with a non-credential: HTTP 401 `invalid_api_key`. No catalog payload.
-3. A local MCP process on 127.0.0.1: Hermes called `mcp__vividsites__synthetic_status`. That result is a fixture, not VividSites.
-
-Paid catalog retrieval was not run. There is no paid key in this environment.
+The captioned file, when the render includes that recording, is `/opt/cursor/artifacts/hermes-free-components-captioned.mp4`. Captions sit under the recording. They do not replace it.
 
 ## Catalog patch
 
-`review/hermes-catalog-entry.yaml` is the proposed file for `NousResearch/hermes-agent` at `plugin-catalog/vividsites.yaml`. It is not an open pull request.
+`review/hermes-catalog-entry.yaml` is the proposed file for `NousResearch/hermes-agent` at `plugin-catalog/vividsites.yaml`. It is not an open pull request. The `sha` is the vividsites-connectors commit that contains this free-only `hermes/` package.
 
-Pin: `cd0f68cd74ee1404811f64c8bf46bc1a405e27a8`
-
-That commit contains `hermes/`. This review file is not part of that pin. `requires_env` is listed so the credential is visible. The package declares the variable as a portable `config_schema` secret rather than `plugin.yaml` `requires_env`, because a native manifest would stop Hermes from loading `mcp.json`. If catalog CI requires those lists to match a native manifest, drop `requires_env` from the entry or accept the portable declaration.
+`requires_env` is empty. There is no key.
 
 ### Proposed catalog pull request text
 
-Title: Add the VividSites connector plugin
+Title: Add the VividSites free-component plugin
 
 Body:
 
 ```
-VividSites connects Hermes to https://www.vividsites.app/api/connector over Streamable HTTP.
+Free-only VividSites components for Hermes.
 
-The package is portable (`plugin.json` + `mcp.json` in `hermes/`). Authorization is `Bearer ${VIVIDSITES_API_KEY}`, resolved from the active Hermes profile. An unset variable fails closed. The package contains no key and does not grant paid-template access. The server checks the caller's own key. `get_build_prompt` is not read-only; the package sets that server to `trust: untrusted`.
+The package is native: plugin.yaml and __init__.py in hermes/. hermes plugins validate on 0.23.1 reports that plugin.yaml parses, __init__.py loads, and the declared tools match register(). A portable mcp.json is not shipped. With plugin.yaml present, the loader would ignore mcp.json.
 
-Surfaces: portable MCP server and one bundled skill. No Python, no desktop UI, no network calls except the connector the user configures.
+Tools: list_free_components and get_free_component. They read https://www.vividsites.app/r/registry.json and https://www.vividsites.app/r/<slug>.json. A component is returned only when meta.free is the boolean true on the index and again on the document. Unknown, false, missing, and non-boolean classifications are refused before a component fetch. Slugs are a single path segment. Redirects and other hosts are refused.
 
-Hermes 0.23.1 validated the package. A missing key failed closed. A non-credential against the live endpoint returned HTTP 401 `invalid_api_key` with no catalog payload. A local synthetic tool call is a fixture, not a paid retrieval. Unpaid HTTP 403 and a successful paid-account call were not run.
+These records are components, not templates. The paid connector is not called. No API key is required or included. Paid-account success, unpaid HTTP 403, and account scoping are not claimed. An invalid-key 401 is a different result and was not used as a substitute.
 
-requires_hermes is >=0.23.1 because that release keeps portable header secrets across reconnects.
+A Hermes process called get_free_component("magnetic-button") and received the public component (15425 bytes). cinematic, a traversal slug, and a URL were refused.
 ```
 
-## Not proven
+## Not claimed
 
-- HTTP 403 for a valid key on an unpaid account. `VIVIDSITES_UNPAID_API_KEY` was unset.
-- A paid account initializing and calling the six tools.
-- One account's key being unable to use another account. No second credential was available, and no other account was queried.
-
-Direct requests without a key, including `search_sites` with `tier=free`, returned 401 `authentication_required` and no `result`. The connector does not have a free-only mode. The public component registry is a different URL. This plugin does not call it. `cinematic.json` on that registry was 404. All 112 registry items observed had `meta.free: true`. That flag was not treated as connector authorization.
+- Unpaid HTTP 403. No unpaid key exists. An invalid key is not that result.
+- Paid-account success. No paid key exists.
+- Account scoping. No account credentials were used.
 
 ## Verdict
 
-Not ready to submit. The plugin loads, the missing-key path fails closed, and the live connector denies a non-entitled key. A paid-library success, the unpaid 403 path, and account scoping are still unproven. No production change was deployed.
+The free-only plugin loads, passes the current validator, and returned one real free component through Hermes. It is not a paid-connector submission. No production change was deployed. Nothing has been posted.

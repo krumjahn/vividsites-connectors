@@ -110,14 +110,10 @@ No free-access exception or change to backend access enforcement was made. All c
 
 ## Hermes — November 11, 2026
 
-`hermes/` is a portable Hermes Agent package for 0.23.1 or newer. It is not a `plugin.yaml` plugin: that manifest would take precedence and Hermes would not load `mcp.json`. The header is `Authorization: Bearer ${VIVIDSITES_API_KEY}`. Hermes resolves it from the profile and fails closed when it is unset. The root `mcp.json` still has no header.
+`hermes/` is a native plugin (`plugin.yaml` and `__init__.py`) for Hermes 0.23.1. It is free-components-only. It reads `https://www.vividsites.app/r/registry.json` and returns a component only when `meta.free` is the boolean true, then checks that flag again on the component document. It does not ship `mcp.json` and does not call `/api/connector`.
 
-`hermes plugins validate ./hermes` passed on Hermes 0.23.1. A real Hermes process then produced three outcomes, stored without catalog bodies in `review/hermes-auth-evidence.json`:
+A portable package can validate without `plugin.yaml`, but the loader ignores `mcp.json` when `plugin.yaml` is present. Catalog admission asks for `plugin.yaml` plus a loadable entrypoint. The native package is the one `hermes plugins validate` admits and the loader executes. No catalog pull request is open.
 
-- Missing key: no request. Error names `${VIVIDSITES_API_KEY}` as unset.
-- Live `POST https://www.vividsites.app/api/connector` with a non-credential: HTTP 401 `invalid_api_key`. No tool list and no catalog payload.
-- Local synthetic MCP fixture: Hermes called `mcp__vividsites__synthetic_status` and the result contained the fixture marker. That server is not VividSites.
+Paid-account success, unpaid HTTP 403, and account scoping are not tested. No paid or unpaid key is available. An invalid-key HTTP 401 is a different result from a valid key on an unpaid account, and this package does not produce either one.
 
-Separate direct requests, also without storing bodies, got HTTP 401 `authentication_required` for initialization, discovery, all six tools, and `search_sites` with `tier=free`. A non-key and the literal placeholder got HTTP 401 `invalid_api_key` on `get_build_prompt`.
-
-Not proven: unpaid HTTP 403, a paid account calling all six tools, and cross-account scoping. No paid key was available. The public component registry is a different endpoint. Every listed registry item had `meta.free: true`. `cinematic.json` on that registry returned 404. This package does not call it. The connector has no free-only mode. No production change was made.
+The public registry's 112 items were observed with `meta.free: true`. They are components. `cinematic` is not one of them and is refused. No production change was made.

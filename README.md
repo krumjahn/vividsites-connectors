@@ -70,11 +70,11 @@ Merge [configs/qwen-code.json](configs/qwen-code.json) into Qwen Code settings a
 
 ### Hermes
 
-Install the `hermes/` directory, not the repository root. See [hermes/README.md](hermes/README.md). Hermes Agent 0.23.1 or newer resolves `Authorization: Bearer ${VIVIDSITES_API_KEY}` from the active profile and fails closed when the variable is unset. The root `mcp.json` is unchanged and still has no header, because the portable Agent Plugins spec does not define header expansion. A native `plugin.yaml` in `hermes/` would stop Hermes from loading that `mcp.json`, so the package stays portable. Each user supplies their own paid library key. The package does not grant paid-template access.
+Install the `hermes/` directory. See [hermes/README.md](hermes/README.md). It is a native plugin for free public components whose registry `meta.free` value is boolean true. It does not call the paid connector and does not take an API key. The root `mcp.json` is unchanged.
 
 ### Portable Agent Plugins
 
-The root `plugin.json` and `mcp.json` use Agent Plugins 1.0.0. That standard has no portable secret-reference field and forbids expansion inside HTTP headers. The root `mcp.json` therefore supplies only the endpoint: configure its Bearer credential through the host's secure auth controls. A host without API-key header support cannot connect; installing the package alone does not grant access. See the [Agent Plugins auth contract](https://agent-plugins.org/specification#streamable-http-and-legacy-http-sse). Hermes is the exception documented above, and only for the `hermes/` package.
+The root `plugin.json` and `mcp.json` use Agent Plugins 1.0.0. That standard has no portable secret-reference field and forbids expansion inside HTTP headers. The root `mcp.json` therefore supplies only the endpoint: configure its Bearer credential through the host's secure auth controls. A host without API-key header support cannot connect; installing the package alone does not grant access. See the [Agent Plugins auth contract](https://agent-plugins.org/specification#streamable-http-and-legacy-http-sse). The Hermes package does not use this root manifest.
 
 ### Muse, Qwen Work, Grok, Gemini consumer and Claude web / Cowork
 
