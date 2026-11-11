@@ -27,9 +27,9 @@ VividSites loads in Hermes as a plugin. Your own paid library key stays in Herme
 
 ## What the clip is
 
-`/opt/cursor/artifacts/hermes-live-probe-raw.mp4` is the untouched terminal recording of Hermes 0.23.1.
+`/opt/cursor/artifacts/hermes-live-probe-raw.mp4` is the terminal recording of Hermes 0.23.1. It is 42 seconds. This is the evidence. It shows the three JSON results below. It does not show a paid catalog result.
 
-`/opt/cursor/artifacts/hermes-vividsites-evidence.mp4` is that recording, trimmed to the terminal and captioned in HyperFrames. Captions do not replace the terminal. The clip is under 90 seconds.
+A HyperFrames caption pass was rendered to `/opt/cursor/artifacts/hermes-vividsites-evidence.mp4`. The headless capture did not load `proof.mp4` (the render log reports 404), so that file is captions on a blank frame. It is not the proof and must not be posted as the demo.
 
 It shows three things:
 
