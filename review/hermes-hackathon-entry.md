@@ -41,7 +41,29 @@ Paid catalog retrieval was not run. There is no paid key in this environment.
 
 ## Catalog patch
 
-`review/hermes-catalog-entry.yaml` is the proposed file for `NousResearch/hermes-agent` at `plugin-catalog/vividsites.yaml`. It is not an open pull request. The `sha` field is the vividsites-connectors commit that contains `hermes/`.
+`review/hermes-catalog-entry.yaml` is the proposed file for `NousResearch/hermes-agent` at `plugin-catalog/vividsites.yaml`. It is not an open pull request.
+
+Pin: `cd0f68cd74ee1404811f64c8bf46bc1a405e27a8`
+
+That commit contains `hermes/`. This review file is not part of that pin. `requires_env` is listed so the credential is visible. The package declares the variable as a portable `config_schema` secret rather than `plugin.yaml` `requires_env`, because a native manifest would stop Hermes from loading `mcp.json`. If catalog CI requires those lists to match a native manifest, drop `requires_env` from the entry or accept the portable declaration.
+
+### Proposed catalog pull request text
+
+Title: Add the VividSites connector plugin
+
+Body:
+
+```
+VividSites connects Hermes to https://www.vividsites.app/api/connector over Streamable HTTP.
+
+The package is portable (`plugin.json` + `mcp.json` in `hermes/`). Authorization is `Bearer ${VIVIDSITES_API_KEY}`, resolved from the active Hermes profile. An unset variable fails closed. The package contains no key and does not grant paid-template access. The server checks the caller's own key. `get_build_prompt` is not read-only; the package sets that server to `trust: untrusted`.
+
+Surfaces: portable MCP server and one bundled skill. No Python, no desktop UI, no network calls except the connector the user configures.
+
+Hermes 0.23.1 validated the package. A missing key failed closed. A non-credential against the live endpoint returned HTTP 401 `invalid_api_key` with no catalog payload. A local synthetic tool call is a fixture, not a paid retrieval. Unpaid HTTP 403 and a successful paid-account call were not run.
+
+requires_hermes is >=0.23.1 because that release keeps portable header secrets across reconnects.
+```
 
 ## Not proven
 

@@ -1,0 +1,21 @@
+# Proposed addition to NousResearch/hermes-agent at plugin-catalog/vividsites.yaml.
+# Not opened as a pull request. Pin is the vividsites-connectors commit that
+# contains hermes/. A later commit in this branch only adds this review file.
+name: vividsites
+repo: https://github.com/krumjahn/vividsites-connectors
+sha: cd0f68cd74ee1404811f64c8bf46bc1a405e27a8
+subdir: hermes
+description: Search VividSites templates, previews, prompts, and components. Each user supplies their own paid library key.
+maintainer: VividSites
+tier: community
+category: tools
+requires_hermes: ">=0.23.1"
+version: "1.0.0"
+title: VividSites
+readme: true
+capabilities:
+  provides_tools: []
+  provides_hooks: []
+  provides_middleware: []
+  requires_env:
+    - VIVIDSITES_API_KEY
