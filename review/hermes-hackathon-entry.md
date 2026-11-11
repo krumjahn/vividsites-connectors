@@ -31,7 +31,7 @@ Free VividSites components now load in Hermes. The plugin reads the public regis
 
 `/opt/cursor/artifacts/hermes-free-components-raw.mp4` is the terminal recording of Hermes 0.23.1. It shows `hermes plugins validate` accepting `plugin.yaml`, then a real `get_free_component` result for `magnetic-button` (`free: true`, 15425 bytes, kind `free_component`) and refusals for `cinematic`, `../secret`, and `https://evil.test/r/a.json`.
 
-The captioned file, when the render includes that recording, is `/opt/cursor/artifacts/hermes-free-components-captioned.mp4`. Captions sit under the recording. They do not replace it.
+`/opt/cursor/artifacts/hermes-free-components-captioned.mp4` is that recording with a HyperFrames caption band. The terminal pixels are in the frame. The band covers the lower lines, so the raw recording is the full JSON. The caption states the same result: `magnetic-button`, `meta.free` true, 15425 bytes, and the three refusals. It is 18 seconds. It is not a paid-catalog demo.
 
 ## Catalog patch
 
