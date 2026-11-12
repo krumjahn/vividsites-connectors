@@ -9,6 +9,7 @@ test_size_limit_stops_before_prompt_without_truncating (test_blueprint.Blueprint
 test_document_rechecks_free_flag_and_source_paths (test_free_tools.FreeToolsTests.test_document_rechecks_free_flag_and_source_paths) ... ok
 test_free_tools_are_never_quota_gated (test_free_tools.FreeToolsTests.test_free_tools_are_never_quota_gated) ... ok
 test_invalid_tool_arguments_fail_before_public_network (test_free_tools.FreeToolsTests.test_invalid_tool_arguments_fail_before_public_network) ... ok
+test_malformed_file_list_returns_safe_registry_error (test_free_tools.FreeToolsTests.test_malformed_file_list_returns_safe_registry_error) ... ok
 test_only_boolean_true_is_free (test_free_tools.FreeToolsTests.test_only_boolean_true_is_free) ... ok
 test_paid_missing_key_has_free_next_step_but_no_automatic_fallback (test_free_tools.FreeToolsTests.test_paid_missing_key_has_free_next_step_but_no_automatic_fallback) ... ok
 test_public_requests_have_no_authorization_header (test_free_tools.FreeToolsTests.test_public_requests_have_no_authorization_header) ... ok
@@ -31,6 +32,6 @@ test_rpc_error_does_not_echo_raw_server_message (test_plugin.PluginTests.test_rp
 test_sse_response_and_remote_tool_errors_are_preserved (test_plugin.PluginTests.test_sse_response_and_remote_tool_errors_are_preserved) ... ok
 
 ----------------------------------------------------------------------
-Ran 31 tests in 0.023s
+Ran 32 tests in 0.037s
 
 OK

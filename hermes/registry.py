@@ -149,8 +149,11 @@ def get_free_component(slug: str, registry: dict | None = None, fetcher=fetch_js
         raise RegistryError("component document refused")
     if document.get("name") != slug or classification(document) != "free":
         raise RegistryError("component classification refused")
+    entries = document.get("files")
+    if not isinstance(entries, list):
+        raise RegistryError("component files refused")
     files = []
-    for entry in document.get("files") or []:
+    for entry in entries:
         if not isinstance(entry, dict):
             continue
         path = entry.get("path")

@@ -71,6 +71,13 @@ class FreeToolsTests(unittest.TestCase):
                 self.assertTrue(self.call(name,args)["isError"])
                 fetch.assert_not_called()
 
+    def test_malformed_file_list_returns_safe_registry_error(self):
+        for files in (1, True, "source", {}, None):
+            with self.subTest(files=files):
+                malformed = {**document(), "files": files}
+                with self.assertRaisesRegex(REGISTRY.RegistryError, "component files refused"):
+                    REGISTRY.get_free_component("magnetic-button", registry={"items": [item()], "_documents": {"magnetic-button": malformed}})
+
     def test_public_requests_have_no_authorization_header(self):
         class Response(io.BytesIO):
             def geturl(self):
