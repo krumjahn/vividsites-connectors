@@ -4,6 +4,7 @@ from pathlib import Path
 from .client import call_tool
 from .schemas import TOOLS
 from .blueprint import SCHEMA as BLUEPRINT_SCHEMA, get_website_blueprint
+from .free_tools import register_free_tools
 
 
 def _require_prompt_approval(tool_name, **kwargs):
@@ -26,6 +27,7 @@ def _handler(remote_name):
 
 
 def register(ctx):
+    register_free_tools(ctx)
     for remote_name, schema in TOOLS.items():
         ctx.register_tool(
             name=schema["name"],

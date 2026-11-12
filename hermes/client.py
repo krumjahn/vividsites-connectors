@@ -85,14 +85,14 @@ def call_tool(name, arguments):
     try:
         key = _secret()
         if not key:
-            return _error("missing_api_key", "Configure VIVIDSITES_API_KEY through Hermes using a paid-account key from https://www.vividsites.app/mcp. Do not paste it into chat.")
+            return _error("missing_api_key", "This library tool needs an existing paid VividSites account. Add VIVIDSITES_API_KEY in the optional masked plugin setting using https://www.vividsites.app/mcp. Free list_free_components and get_free_component work without a key. Do not paste secrets into chat.")
         request_id = str(uuid4())
         payload = {"jsonrpc": "2.0", "id": request_id, "method": "tools/call", "params": {"name": name, "arguments": arguments}}
         request = Request(ENDPOINT, json.dumps(payload).encode("utf-8"), {
             "Content-Type": "application/json",
             "Accept": "application/json, text/event-stream",
             "Authorization": "Bearer " + key,
-            "User-Agent": "vividsites-hermes/1.1.0",
+            "User-Agent": "vividsites-hermes/1.2.0",
         }, method="POST")
         with build_opener(_NoRedirect()).open(request, timeout=TIMEOUT_SECONDS) as response:
             raw = response.read(MAX_RESPONSE_BYTES + 1)

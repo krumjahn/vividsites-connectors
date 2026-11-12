@@ -1,0 +1,5 @@
+vividsites_get_build_prompt: actual unattended Hermes approval gate blocked
+vividsites_get_website_blueprint: actual unattended Hermes approval gate blocked
+list_free_components: no quota approval requested
+get_free_component: no quota approval requested
+vividsites_search_sites: no quota approval requested

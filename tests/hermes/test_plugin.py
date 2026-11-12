@@ -47,7 +47,7 @@ class PluginTests(unittest.TestCase):
         with patch.object(CLIENT, "build_opener", side_effect=AssertionError("network during registration")):
             ctx = Context()
             PLUGIN.register(ctx)
-        self.assertEqual(len(ctx.tools), 7)
+        self.assertEqual(len(ctx.tools), 9)
         self.assertEqual(set(ctx.hooks), {"pre_tool_call"})
         self.assertTrue(ctx.skills["vividsites-library"].is_file())
         for name, tool in ctx.tools.items():
