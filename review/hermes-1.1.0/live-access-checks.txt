@@ -1,0 +1,3 @@
+PASS: anonymous initialization, discovery and all six tools blocked; invalid key blocked
+SKIP: live unpaid-account checks (VIVIDSITES_UNPAID_API_KEY not supplied)
+SKIP: live paid-account checks (VIVIDSITES_API_KEY not supplied)

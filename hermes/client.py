@@ -92,7 +92,7 @@ def call_tool(name, arguments):
             "Content-Type": "application/json",
             "Accept": "application/json, text/event-stream",
             "Authorization": "Bearer " + key,
-            "User-Agent": "vividsites-hermes/1.0.0",
+            "User-Agent": "vividsites-hermes/1.1.0",
         }, method="POST")
         with build_opener(_NoRedirect()).open(request, timeout=TIMEOUT_SECONDS) as response:
             raw = response.read(MAX_RESPONSE_BYTES + 1)

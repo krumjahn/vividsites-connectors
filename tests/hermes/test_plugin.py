@@ -47,7 +47,7 @@ class PluginTests(unittest.TestCase):
         with patch.object(CLIENT, "build_opener", side_effect=AssertionError("network during registration")):
             ctx = Context()
             PLUGIN.register(ctx)
-        self.assertEqual(len(ctx.tools), 6)
+        self.assertEqual(len(ctx.tools), 7)
         self.assertEqual(set(ctx.hooks), {"pre_tool_call"})
         self.assertTrue(ctx.skills["vividsites-library"].is_file())
         for name, tool in ctx.tools.items():
@@ -145,8 +145,9 @@ class PluginTests(unittest.TestCase):
         self.assertEqual(hook("vividsites_get_build_prompt",args={"slug":"fixture"})["action"],"approve")
         self.assertIn("daily library allowance", hook("vividsites_get_build_prompt")["message"])
         for name in self.ctx.tools:
-            if name != "vividsites_get_build_prompt":
+            if name not in {"vividsites_get_build_prompt", "vividsites_get_website_blueprint"}:
                 self.assertIsNone(hook(name))
+        self.assertEqual(hook("vividsites_get_website_blueprint")["action"], "approve")
         self.assertIsNone(hook("unrelated_tool"))
 
 

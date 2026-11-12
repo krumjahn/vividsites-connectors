@@ -1,0 +1,4 @@
+Plugin Doctor: <repository>/hermes
+  manifest: vividsites 1.1.0 (standalone)
+  OK: runtime discovery, manifest parsing, import, and registration passed
+  registrations: 7 tool(s), 1 hook(s)

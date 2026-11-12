@@ -1,5 +1,5 @@
 name: vividsites
-version: "1.0.0"
+version: "1.1.0"
 description: Search cinematic website templates, previews, build prompts, and UI or 3D component source with a paid VividSites library account.
 author: VividSites
 requires_hermes: ">=0.23.1"
@@ -10,6 +10,7 @@ provides_tools:
   - vividsites_search_components
   - vividsites_get_component
   - vividsites_video_prompt_formula
+  - vividsites_get_website_blueprint
 provides_hooks:
   - pre_tool_call
 requires_env:
