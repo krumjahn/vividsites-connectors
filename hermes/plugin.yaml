@@ -1,6 +1,6 @@
 name: vividsites
 version: "1.2.0"
-description: Free public components without a key, plus cinematic templates and complete website blueprints with an optional paid VividSites library account.
+description: Cinematic website design sources for Hermes. Free UI components without a key; website templates, build prompts and blueprints with an optional paid VividSites library account.
 author: VividSites
 requires_hermes: ">=0.23.1"
 provides_tools:

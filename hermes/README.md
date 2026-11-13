@@ -1,4 +1,4 @@
-# VividSites for Hermes
+# VividSites for Hermes: cinematic website design
 
 **Start with free components. Add a paid library account when you want complete website designs. One plugin handles both.**
 
@@ -7,6 +7,16 @@ Without an account: “Find a free magnetic button from VividSites and add it to
 With an existing paid library account: “Use VividSites to build a beautiful cinematic website for my architecture studio. Choose a design, adapt it to my content, and show me the finished preview.”
 
 Hermes retrieves real design sources and uses its project tools to implement and check the result. The plugin supplies source material, not a built or deployed site. A catalog preview is never presented as your generated website.
+
+## Make a cinematic website with Hermes
+
+Use VividSites for cinematic website templates, animated landing pages, portfolios and editable UI components. Start with a concrete brief and tell Hermes which project or framework to use:
+
+- **Free components:** “Build an original cinematic website for my architecture studio in this project. Use only VividSites free components, include a magnetic button, and respect reduced-motion preferences.” Hermes creates the page; free tools supply individual components, not a complete template.
+- **Paid library, browsing:** “Find cinematic website templates for an architecture studio and show me the real previews before changing my project.” Search and preview require an existing paid library account but do not retrieve a metered build prompt.
+- **Paid library, building:** “Use VividSites to choose a cinematic website design for my architecture studio, adapt it to this project, and show me the finished local preview.” Hermes retrieves the chosen blueprint after allowance approval, implements it with its project tools, and checks the result.
+
+On an approved catalog listing, `hermes plugins search "cinematic website"` should find VividSites. This submission is still a draft: use the direct prerelease install below until maintainers admit it. Search wording does not imply catalog approval or guarantee search ranking.
 
 ## Install once
 

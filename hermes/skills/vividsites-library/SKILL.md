@@ -3,7 +3,7 @@ name: vividsites-library
 description: Use free public UI components without an account, or cinematic website templates and complete build prompts with an optional paid VividSites library account. Build the requested website in Hermes using actual retrieved design sources.
 ---
 
-# VividSites: free components and optional paid library
+# VividSites: cinematic website design and free components
 
 Use the native Hermes plugin's actual tools. Do not invent catalog results or claim that a library preview is a site you built.
 
@@ -18,6 +18,8 @@ Missing or invalid paid credentials never prevent this free path. If a paid tool
 ## One prompt to a complete website
 
 For a request such as “Use VividSites to build a beautiful cinematic architecture website,” handle the design workflow rather than giving a command-line tutorial or stopping at library links.
+
+This also applies to cinematic landing pages and portfolios. Respect the requested project and framework. If the user explicitly wants a free-only cinematic website, create an original page with the free component workflow above; do not start authenticated template search or imply that a paid template was retrieved.
 
 1. Use `vividsites_search_sites` for a focused style search. This and the other library tools require an existing paid library account. If the key or entitlement is missing, explain the blocker. You may offer an original page using genuinely free components, but never misrepresent it as a retrieved paid template.
 2. Use only actual returned slugs. If the user asks you to choose, choose a suitable match and proceed. If they are browsing, use `vividsites_get_template_preview` and show the real options without modifying their project.
