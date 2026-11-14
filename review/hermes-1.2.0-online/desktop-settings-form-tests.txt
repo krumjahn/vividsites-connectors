@@ -1,0 +1,9 @@
+
+ RUN  v4.1.12 /Users/keithrumjahn/Documents/Codex/2026-11-14/task/hermes-runtime/apps/desktop
+
+
+ Test Files  1 passed (1)
+      Tests  6 passed (6)
+   Start at  10:12:27
+   Duration  2.34s (transform 1.09s, setup 205ms, import 1.34s, tests 196ms, environment 505ms)
+

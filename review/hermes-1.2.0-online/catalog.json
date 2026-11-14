@@ -1,0 +1,11 @@
+{
+  "ok": true,
+  "files": [
+    {
+      "path": "../catalog-verified/plugin-catalog/vividsites.yaml",
+      "ok": true,
+      "errors": [],
+      "warnings": []
+    }
+  ]
+}

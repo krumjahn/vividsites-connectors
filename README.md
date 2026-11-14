@@ -2,7 +2,7 @@
 
 ![VividSites](assets/icon.png)
 
-Cinematic website templates, previews, complete build prompts, and editable UI and 3D component code inside your AI assistant. **Every tool requires a paid VividSites library account.** There is no anonymous or unpaid connector access.
+Cinematic website templates, previews, complete build prompts, and editable UI and 3D component code inside your AI assistant. **Hosted MCP library tools require a paid VividSites library account.** The native Hermes plugin also includes explicitly free public-component tools that need no key; the hosted connector still has no anonymous access.
 
 Sign in at [VividSites MCP setup](https://www.vividsites.app/mcp), purchase a [library plan](https://www.vividsites.app/pricing) if needed, and connect your personal API key in the assistant's credential settings. Your assistant subscription does not include VividSites access.
 
@@ -16,6 +16,10 @@ Sign in at [VividSites MCP setup](https://www.vividsites.app/mcp), purchase a [l
 The connector supplies library assets. It does not run VividSites Create builds, publish sites, purchase credits or initiate payments. Store keys in host credential settings; never paste them into model chats, URLs or shared repositories. OAuth sign-in is not implemented.
 
 ## Install
+
+### Hermes Agent
+
+The native Hermes package is in [`hermes/`](hermes/README.md). Start with genuinely free public components without an account, then optionally add a paid-library key for templates, full build prompts and website blueprints. One plugin, nine tools, a bundled design skill, profile-scoped credentials, and allowance approval. Catalog admission is separate and still pending.
 
 ### Cline
 

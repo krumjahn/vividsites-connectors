@@ -1,0 +1,39 @@
+{
+  "engine": "Hermes AIAgent",
+  "model": "gpt-6-astra",
+  "result": "generated",
+  "html_bytes": 24983,
+  "html_sha256": "7459648e1055772f035a78cadd67c0ba3bacee23b0d34be747e8472fc5c3b781",
+  "prompt_source": "authorized Sanctum blueprint, unabridged",
+  "additional_prompt_retrievals": 0,
+  "published": false,
+  "preview_validation": "passed",
+  "initial_attempts": "Hermes non-stream watchdog interrupted active Codex output; streaming plus documented 120-second event timeout completed the same build test with automatic retry loops disabled.",
+  "publications": {
+    "blueprint": false,
+    "generated_html": false,
+    "screenshots": false
+  },
+  "checks": {
+    "desktop_viewport": [
+      1440,
+      1000
+    ],
+    "mobile_viewport": [
+      390,
+      844
+    ],
+    "horizontal_overflow": false,
+    "all_fragment_targets_exist": true,
+    "desktop_visit_navigation": "passed",
+    "visit_dialog_open_close": "passed",
+    "mobile_menu_open_select_close": "passed",
+    "video_ready_state": 4,
+    "video_duration_seconds": 8.041667,
+    "reduced_motion": "animation none, scroll auto, video position resets to zero",
+    "scroll_scrubbing": {
+      "scroll_y": 1500,
+      "video_time_seconds": 2.847791
+    }
+  }
+}

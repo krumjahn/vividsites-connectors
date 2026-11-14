@@ -1,0 +1,25 @@
+name: vividsites
+version: "1.2.0"
+description: Cinematic website design sources for Hermes. Free UI components without a key; website templates, build prompts and blueprints with an optional paid VividSites library account.
+author: VividSites
+requires_hermes: ">=0.23.1"
+provides_tools:
+  - list_free_components
+  - get_free_component
+  - vividsites_search_sites
+  - vividsites_get_template_preview
+  - vividsites_get_build_prompt
+  - vividsites_search_components
+  - vividsites_get_component
+  - vividsites_video_prompt_formula
+  - vividsites_get_website_blueprint
+provides_hooks:
+  - pre_tool_call
+requires_env: []
+config_schema:
+  api_key:
+    type: secret
+    env: VIVIDSITES_API_KEY
+    required: false
+    label: Optional paid-library API key
+    description: Leave empty for free components. Add a personal key from https://www.vividsites.app/mcp to use an existing paid library account. Assistant subscriptions and Create credits do not include library access.

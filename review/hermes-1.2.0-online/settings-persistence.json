@@ -1,0 +1,9 @@
+{
+  "save_route": "PUT /api/env: passed",
+  "read_route": "GET /api/env: redacted",
+  "secret_field_value_omitted": true,
+  "credential_file_mode": "0600",
+  "config_yaml_contains_key": false,
+  "fresh_process_saved_key_search": "passed",
+  "native_desktop_ui": "not exercised"
+}

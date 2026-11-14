@@ -1,0 +1,13 @@
+{
+  "runtime": "Hermes",
+  "tool": "vividsites_get_website_blueprint",
+  "slug": "sanctum",
+  "result": "passed",
+  "prompt_bearing_requests": 1,
+  "approval_hook": "present",
+  "approval_source": "explicit user authorization for one necessary test retrieval",
+  "account_plan": "lifetime",
+  "daily_capped_allowance_consumed": false,
+  "response_bytes": 12230,
+  "response_sha256": "8e0b82ff52fa4b7f34900d14e0c9d13deb7a195788510969fb390a6b5cc2f065"
+}
