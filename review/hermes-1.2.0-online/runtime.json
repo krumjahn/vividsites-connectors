@@ -1,0 +1,27 @@
+{
+  "runtime": "Hermes",
+  "plugin_version": "1.2.0",
+  "no_key_free_component": {
+    "slug": "magnetic-button",
+    "free": true,
+    "source_bytes": 15437,
+    "source_sha256": "f85297103b5a63adb9cb83d4a5c9fb08ff16be72014d15b6148954849dfbe4d9"
+  },
+  "no_key_paid": "missing_api_key; plugin remains loaded",
+  "free_refusals": [
+    "template slug",
+    "path traversal",
+    "URL"
+  ],
+  "invalid_key_free_component": {
+    "slug": "magnetic-button",
+    "free": true,
+    "source_bytes": 15437,
+    "source_sha256": "f85297103b5a63adb9cb83d4a5c9fb08ff16be72014d15b6148954849dfbe4d9"
+  },
+  "invalid_key_paid": "http_401; no free fallback",
+  "empty_profile_after_keyed_profile": "missing_api_key",
+  "paid_account": "SKIP: no existing VIVIDSITES_API_KEY supplied",
+  "unpaid_account": "SKIP: no existing VIVIDSITES_UNPAID_API_KEY supplied",
+  "metered_build_prompt": "not requested"
+}

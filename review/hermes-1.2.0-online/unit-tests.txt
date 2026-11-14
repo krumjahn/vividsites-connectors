@@ -1,0 +1,47 @@
+test_bad_arguments_never_call_service (test_blueprint.BlueprintTests.test_bad_arguments_never_call_service) ... ok
+test_complete_sources_are_preserved_and_prompt_is_requested_once_last (test_blueprint.BlueprintTests.test_complete_sources_are_preserved_and_prompt_is_requested_once_last) ... ok
+test_no_components_needs_only_two_calls (test_blueprint.BlueprintTests.test_no_components_needs_only_two_calls) ... ok
+test_prompt_timeout_does_not_retry_or_claim_success (test_blueprint.BlueprintTests.test_prompt_timeout_does_not_retry_or_claim_success) ... ok
+test_read_failure_never_spends_prompt_allowance (test_blueprint.BlueprintTests.test_read_failure_never_spends_prompt_allowance) ... ok
+test_remote_text_error_and_empty_or_malformed_response_fail_closed (test_blueprint.BlueprintTests.test_remote_text_error_and_empty_or_malformed_response_fail_closed) ... ok
+test_size_limit_after_prompt_reports_consumption_uncertainty (test_blueprint.BlueprintTests.test_size_limit_after_prompt_reports_consumption_uncertainty) ... ok
+test_size_limit_stops_before_prompt_without_truncating (test_blueprint.BlueprintTests.test_size_limit_stops_before_prompt_without_truncating) ... ok
+test_document_rechecks_free_flag_and_source_paths (test_free_tools.FreeToolsTests.test_document_rechecks_free_flag_and_source_paths) ... ok
+test_free_tools_are_never_quota_gated (test_free_tools.FreeToolsTests.test_free_tools_are_never_quota_gated) ... ok
+test_invalid_tool_arguments_fail_before_public_network (test_free_tools.FreeToolsTests.test_invalid_tool_arguments_fail_before_public_network) ... ok
+test_malformed_file_list_returns_safe_registry_error (test_free_tools.FreeToolsTests.test_malformed_file_list_returns_safe_registry_error) ... ok
+test_only_boolean_true_is_free (test_free_tools.FreeToolsTests.test_only_boolean_true_is_free) ... ok
+test_paid_missing_key_has_free_next_step_but_no_automatic_fallback (test_free_tools.FreeToolsTests.test_paid_missing_key_has_free_next_step_but_no_automatic_fallback) ... ok
+test_public_requests_have_no_authorization_header (test_free_tools.FreeToolsTests.test_public_requests_have_no_authorization_header) ... ok
+test_redirects_and_network_failures_are_safe (test_free_tools.FreeToolsTests.test_redirects_and_network_failures_are_safe) ... ok
+test_registration_and_free_calls_never_resolve_a_key_or_call_paid_service (test_free_tools.FreeToolsTests.test_registration_and_free_calls_never_resolve_a_key_or_call_paid_service) ... ok
+test_unclassified_or_paid_records_are_not_fetched (test_free_tools.FreeToolsTests.test_unclassified_or_paid_records_are_not_fetched) ... ok
+test_all_six_tools_forward_and_preserve_results (test_plugin.PluginTests.test_all_six_tools_forward_and_preserve_results) ... ok
+test_argument_errors_never_network (test_plugin.PluginTests.test_argument_errors_never_network) ... ok
+test_build_prompt_escalates_to_hermes_approval (test_plugin.PluginTests.test_build_prompt_escalates_to_hermes_approval) ... ok
+test_http_errors_are_safe_and_not_retried (test_plugin.PluginTests.test_http_errors_are_safe_and_not_retried) ... /opt/homebrew/Cellar/python@3.14/3.14.6/Frameworks/Python.framework/Versions/3.14/lib/python3.14/tempfile.py:484: ResourceWarning: Implicitly cleaning up <HTTPError 401: 'secret-value-do-not-show'>
+  _warnings.warn(self.warn_message, ResourceWarning)
+/opt/homebrew/Cellar/python@3.14/3.14.6/Frameworks/Python.framework/Versions/3.14/lib/python3.14/tempfile.py:484: ResourceWarning: Implicitly cleaning up <HTTPError 403: 'secret-value-do-not-show'>
+  _warnings.warn(self.warn_message, ResourceWarning)
+/opt/homebrew/Cellar/python@3.14/3.14.6/Frameworks/Python.framework/Versions/3.14/lib/python3.14/tempfile.py:484: ResourceWarning: Implicitly cleaning up <HTTPError 429: 'secret-value-do-not-show'>
+  _warnings.warn(self.warn_message, ResourceWarning)
+/opt/homebrew/Cellar/python@3.14/3.14.6/Frameworks/Python.framework/Versions/3.14/lib/python3.14/tempfile.py:484: ResourceWarning: Implicitly cleaning up <HTTPError 503: 'secret-value-do-not-show'>
+  _warnings.warn(self.warn_message, ResourceWarning)
+/opt/homebrew/Cellar/python@3.14/3.14.6/Frameworks/Python.framework/Versions/3.14/lib/python3.14/tempfile.py:484: ResourceWarning: Implicitly cleaning up <HTTPError 500: 'secret-value-do-not-show'>
+  _warnings.warn(self.warn_message, ResourceWarning)
+ok
+test_invalid_response_never_claims_success (test_plugin.PluginTests.test_invalid_response_never_claims_success) ... ok
+test_key_is_resolved_per_call (test_plugin.PluginTests.test_key_is_resolved_per_call) ... ok
+test_mismatched_ids_and_malformed_results_fail (test_plugin.PluginTests.test_mismatched_ids_and_malformed_results_fail) ... ok
+test_missing_key_never_networks (test_plugin.PluginTests.test_missing_key_never_networks) ... ok
+test_network_errors_do_not_leak_or_retry (test_plugin.PluginTests.test_network_errors_do_not_leak_or_retry) ... ok
+test_redirect_handler_refuses_cross_origin (test_plugin.PluginTests.test_redirect_handler_refuses_cross_origin) ... ok
+test_registration_is_offline_and_complete (test_plugin.PluginTests.test_registration_is_offline_and_complete) ... ok
+test_response_size_is_bounded (test_plugin.PluginTests.test_response_size_is_bounded) ... ok
+test_rpc_error_does_not_echo_raw_server_message (test_plugin.PluginTests.test_rpc_error_does_not_echo_raw_server_message) ... ok
+test_sse_response_and_remote_tool_errors_are_preserved (test_plugin.PluginTests.test_sse_response_and_remote_tool_errors_are_preserved) ... ok
+
+----------------------------------------------------------------------
+Ran 32 tests in 0.016s
+
+OK

@@ -1,0 +1,5 @@
+vividsites_get_build_prompt: real unattended Hermes approval gate blocked; no handler dispatched
+vividsites_get_website_blueprint: real unattended Hermes approval gate blocked; no handler dispatched
+list_free_components: no allowance approval requested
+get_free_component: no allowance approval requested
+vividsites_search_sites: no allowance approval requested
