@@ -1,0 +1,11 @@
+{
+  "source_revision": "342b54fa53f075685c66fc83a74e80872f1a99ec",
+  "source_build": "passed",
+  "settings_form_tests": 6,
+  "settings_form_suite": "passed",
+  "credential_backend_save_redact_persist_fresh_process_paid_search": "previously passed",
+  "native_ui": "not completed",
+  "blocker": "Computer Use app-access approval for Electron is pending; app was opened to setup screen and closed after inspection",
+  "user_settings_modified": false,
+  "persistent_services_enabled": false
+}

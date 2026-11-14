@@ -35,12 +35,27 @@ The existing saved review account was authenticated through VividSites's ordinar
 
 These checks ran on source `71d60f0e2659038d0afe99c6ca107017a38d6fd1`, whose plugin bytes match the earlier checked source head. This follow-up changes evidence only.
 
+## Authorized complete website build — November 14
+
+The user explicitly authorized sending the retrieved Sanctum blueprint to the Codex model service for this one local build test, with no blueprint publication. **Hermes AIAgent generated the complete website**, using the unabridged blueprint already retrieved; **zero additional VividSites prompt retrievals** occurred. The private blueprint and generated HTML are not committed or deployed.
+
+The generated single-file responsive site is **24,983 bytes**, SHA-256 `7459648e1055772f035a78cadd67c0ba3bacee23b0d34be747e8472fc5c3b781`. It uses inline CSS/JavaScript and the supplied cinematic video asset. Real Chrome validation through browser-harness passed:
+
+- **1440 × 1000 desktop** and **390 × 844 mobile** render without horizontal overflow; screenshots were visually inspected locally.
+- Every fragment navigation target exists. Desktop Visit navigation works; the visit dialog opens and closes through real clicks.
+- Mobile navigation opens, navigates, closes and updates `aria-expanded`.
+- The video decodes successfully (`readyState = 4`, duration **8.041667 seconds**). Scrolling to 1500 px advances it to **2.847791 seconds**.
+- Emulated reduced motion disables animations and smooth scrolling and resets the video to zero.
+
+The first harness attempt hit Hermes's implicit non-stream watchdog despite active Codex progress, and a streaming attempt hit its 12-second event-idle threshold. The same build test completed with streaming, the documented 120-second event timeout and automatic retry loops disabled. These are test-harness settings, not plugin changes. The prior approval rejection was resolved by the user's explicit destination-specific approval.
+
+[Generation/preview metadata](generated-site-result.json), [Desktop validation scope](native-desktop-validation.json), [six settings-form tests](desktop-settings-form-tests.txt). No blueprint, generated HTML, screenshot, credentials or account identifiers are in these evidence files. The localhost preview tab/server and test app were closed; no persistent service was enabled.
+
 ## Remaining release gates
 
 - Valid unpaid-account HTTP 403: **not run**. The discovered review account is lifetime, not unpaid. An existing valid unpaid test-account key is needed; invalid-key 401 is not equivalent. No account was created, downgraded or modified.
-- Complete Hermes-generated website: **not run**. Automatic approval review rejected the prepared generation command because it would send the private paid blueprint to the external Codex backend. The original user history was checked and the same operation was retried once; review rejected it again. Neither attempt executed. Explicit destination-specific authorization is required to send this retrieved blueprint to that model service; no alternate route was attempted.
-- Native Desktop masked-key entry/save/reload interaction: **not run**. The actual backend persistence and authenticated fresh-process reload pass as described above; a native Desktop application was not present in the checked application locations. The current GitHub release exposes no downloadable assets. Backend coverage is not a UI pass.
+- Native Desktop masked-key entry/save/reload interaction: **not completed**. The isolated Desktop source build now succeeds, and all **six** actual settings-form tests pass (masked field, secret routing, clearing after save and input validation). Actual credential backend persistence and authenticated fresh-process reload already pass. The native app opened to its setup screen; Computer Use issued an app-access approval for **Electron**, which is still pending. The test app was closed. Neither form tests nor backend coverage are represented as a completed native UI test.
 - Exact catalog-head CI at `8325e44bd4b8c60e56474349469c4b6020535107`: [Plugin Catalog CI run 43537268844](https://github.com/NousResearch/hermes-agent/actions/runs/43537268844) still reports **action_required**, requiring maintainer approval. Other reported workflows at that head also require approval. No remote CI pass is claimed.
 - No source PR workflow runs were reported for `71d60f0e2659038d0afe99c6ca107017a38d6fd1`.
 
-Both existing PRs remain **draft** because the build and native UI release gates remain unverified. GitHub's raw PR API reports the catalog mergeable with state `blocked`; this is not a content conflict. The source PR is also mergeable. No merge, deployment, purchase, real health-data/token access, service enablement or unrelated-source publication occurred. Separate Apple Health work was not touched.
+Both existing PRs remain **draft** because the valid-unpaid-account and native UI release gates remain unverified. The complete website-build gate now passes. GitHub's raw PR API reports the catalog mergeable with state `blocked`; this is not a content conflict. The source PR is also mergeable. No merge, deployment, purchase, real health-data/token access, service enablement or unrelated-source publication occurred. Separate Apple Health work was not touched.
