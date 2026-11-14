@@ -25,13 +25,22 @@ The catalog image URL remains pinned to `e988245c704aa0441f547fbcb08abb624bc00db
 
 The upstream public website renderer inspected previously omits the separate title field and renders the internal name; the correct metadata does not establish display on every surface. Marketplace acceptance/display remains unverified.
 
-## Still not passed or not run
+## Additional live passes — November 14
 
-- Valid paid-account success and valid unpaid-account HTTP 403: **not run; no test credentials supplied**. Synthetic invalid-key 401 is not an unpaid-account result.
-- Metered build-prompt retrieval: **not requested; explicit allowance approval still required**.
-- Complete Hermes-generated website: **not run**.
-- Desktop masked-key save, persistence, reload and authenticated use: **not run**.
-- Exact catalog-head CI at `8325e44bd4b8c60e56474349469c4b6020535107`: [Plugin Catalog CI run 43537268844](https://github.com/NousResearch/hermes-agent/actions/runs/43537268844) reports **action_required**, requiring maintainer approval. Other reported workflows at that head also require approval. No remote CI pass is claimed.
-- No source PR workflow runs were reported for checked head `e988245c704aa0441f547fbcb08abb624bc00db6`.
+The existing saved review account was authenticated through VividSites's ordinary public login/profile APIs. Its existing **lifetime** entitlement and API key were used securely in isolated temporary Hermes profiles. No account entitlement changed and no purchase occurred. The key and login credentials were never included in logs or repository files.
 
-Both existing PRs remain **draft**. No merge, deployment, paid allowance use, purchase, real health-data/token access, service enablement or unrelated-source publication occurred. Separate Apple Health work was not touched.
+- Real Hermes registry dispatch: paid template search and preview **pass** for `sanctum`; the full keyless/invalid-key/profile-isolation probe also passes again. See [paid runtime](runtime-paid.json).
+- One explicitly user-authorized `vividsites_get_website_blueprint` invocation **passes**, including one complete premium prompt retrieval and the real preview. The registered approval hook was verified before dispatch; this harness used the user's explicit authorization, rather than exercising an interactive Hermes approval click. Response: **12,230 bytes**, SHA-256 `8e0b82ff52fa4b7f34900d14e0c9d13deb7a195788510969fb390a6b5cc2f065`. Lifetime access does not decrement a capped daily allowance; monthly-plan metering is therefore not proven. No additional prompt retrieval was attempted. See [retrieval metadata](authorized-retrieval.json). The paid prompt itself is not published here.
+- Actual Desktop credential backend via FastAPI TestClient: **PUT /api/env** saves, **GET /api/env** redacts, the manifest field reports presence without its value, `.env` is private (**0600**), and `config.yaml` contains no key. A fresh process reloads the persisted key and successfully searches through the real Hermes plugin. See [persistence metadata](settings-persistence.json). This is backend integration coverage; it does not claim native Desktop UI verification.
+
+These checks ran on source `71d60f0e2659038d0afe99c6ca107017a38d6fd1`, whose plugin bytes match the earlier checked source head. This follow-up changes evidence only.
+
+## Remaining release gates
+
+- Valid unpaid-account HTTP 403: **not run**. The discovered review account is lifetime, not unpaid. An existing valid unpaid test-account key is needed; invalid-key 401 is not equivalent. No account was created, downgraded or modified.
+- Complete Hermes-generated website: **not run**. Automatic approval review rejected the prepared generation command because it would send the private paid blueprint to the external Codex backend. The original user history was checked and the same operation was retried once; review rejected it again. Neither attempt executed. Explicit destination-specific authorization is required to send this retrieved blueprint to that model service; no alternate route was attempted.
+- Native Desktop masked-key entry/save/reload interaction: **not run**. The actual backend persistence and authenticated fresh-process reload pass as described above; a native Desktop application was not present in the checked application locations. The current GitHub release exposes no downloadable assets. Backend coverage is not a UI pass.
+- Exact catalog-head CI at `8325e44bd4b8c60e56474349469c4b6020535107`: [Plugin Catalog CI run 43537268844](https://github.com/NousResearch/hermes-agent/actions/runs/43537268844) still reports **action_required**, requiring maintainer approval. Other reported workflows at that head also require approval. No remote CI pass is claimed.
+- No source PR workflow runs were reported for `71d60f0e2659038d0afe99c6ca107017a38d6fd1`.
+
+Both existing PRs remain **draft** because the build and native UI release gates remain unverified. GitHub's raw PR API reports the catalog mergeable with state `blocked`; this is not a content conflict. The source PR is also mergeable. No merge, deployment, purchase, real health-data/token access, service enablement or unrelated-source publication occurred. Separate Apple Health work was not touched.
